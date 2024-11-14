@@ -1,4 +1,4 @@
-function changeMainImage(imageSrc) {
+function ImagenCarousel1(imageSrc) {
     document.getElementById("mainImage").src = imageSrc;
 }
 
