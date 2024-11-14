@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Butacoo Home</title>
+    <link rel="stylesheet" href="../sass/build/main.css">
+    <script src="../js/main.js"></script>
+    
 </head>
 <body>
     <header>
@@ -37,12 +40,73 @@
         </nav>
     </header>
 
-    <main>
+    <main class="main-content">
+        <!-- Primer Carrusel de 5 imágenes -->
+        <section class="carousel carousel--large">
+            <div class="carousel__main-image">
+                <img id="mainImage" src="image1.jpg" alt="Main Image">
+            </div>
+            <div class="carousel__thumbnails">
+                <img src="image1.jpg" alt="Image 1" onclick="changeMainImage('image1.jpg')">
+                <img src="image2.jpg" alt="Image 2" onclick="changeMainImage('image2.jpg')">
+                <img src="image3.jpg" alt="Image 3" onclick="changeMainImage('image3.jpg')">
+                <img src="image4.jpg" alt="Image 4" onclick="changeMainImage('image4.jpg')">
+                <img src="image5.jpg" alt="Image 5" onclick="changeMainImage('image5.jpg')">
+            </div>
+        </section>
 
+        <!-- Segundo Carrusel de 3 imágenes -->
+        <section class="carousel carousel--text">
+            <div class="carousel__main-image">
+                <img id="textCarouselMainImage" src="imageA.jpg" alt="Main Image">
+            </div>
+            <div class="carousel__thumbnails">
+                <img src="../img/butaca.png" alt="Image A" onclick="changeTextCarouselImage('../img/butaca.png', 'las mejores butacas y mas comodas')">
+                <img src="../img/caracteristicas.png" alt="Image B" onclick="changeTextCarouselImage('../img/caracteristicas.png', 'los mejores efectos')">
+                <img src="../img/pantalla.png" alt="Image C" onclick="changeTextCarouselImage('../img/pantalla.png', 'las mejores pantallas')">
+            </div>
+            <p id="carouselText" class="carousel__text">Texto para imagen A</p>
+        </section>
     </main>
 
     <footer>
-
+        <table class="footer__table">
+            <tr>
+                <td rowspan="2" class="footer__logo">
+                    <img src="logo.png" alt="Butacoo66 Logo" width="50">
+                    <p>Butacoo66</p>
+                </td>
+                <td rowspan="2" class="footer__credits">
+                    <p>Designed by Tnasti and Daniel</p>
+                </td>
+                <td class="footer__contact">
+                    <p>Información de Contacto</p>
+                </td>
+                <td class="footer__contact">
+                    <p>Información de Contacto</p>
+                </td>
+                <td class="footer__contact">
+                    <p>Información de Contacto</p>
+                </td>
+                <td class="footer__contact">
+                    <p>Información de Contacto</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="footer__contact">
+                    <p>Información de Contacto</p>
+                </td>
+                <td class="footer__contact">
+                    <p>Información de Contacto</p>
+                </td>
+                <td class="footer__contact">
+                    <p>Información de Contacto</p>
+                </td>
+                <td class="footer__contact">
+                    <p>Información de Contacto</p>
+                </td>
+            </tr>
+        </table>
     </footer>
 </body>
 </html>
