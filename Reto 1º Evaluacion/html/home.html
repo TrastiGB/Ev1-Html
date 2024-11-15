@@ -6,71 +6,50 @@
     <title>Butacoo Home</title>
     <link rel="stylesheet" href="../sass/build/reset.css">
     <link rel="stylesheet" href="../sass/build/main.css">
-    <script src="../js/main.js"></script>
     
 </head>
 <body>
-    <header>
-        <nav class="Header_Nav">
-            <div class="Header_Logo">
-                <img src="">
-            </div>
-            <div class="Header_Links">
-                <div class="Header_LinkHome">
-                    <p><a href="#">Home</a></p>
-                </div>
-                <div class="Header_LinkMovies">
-                    <p><a href="movies.html">Movies</a></p>
-                </div>
-                <div class="Header_LinkAboutUs">
-                    <p><a href="aboutus.html">About Us</a></p>
-                </div>
-            </div>
-            <div class="Header_Log">
-                <div class="Header_Log_In">
-                    <button>
-                        <img src="">
-                    </button>
-                </div>
-                <div class="Header_Log_Out">
-                    <button>
-                        <img src="">
-                    </button>
-                </div>
-            </div>
+    <header class="header">
+        <div class="header__logo">
+            <img src="../img/logo.png" alt="Butacoo Logo">
+        </div>
+        <nav class="header__nav">
+            <ul class="header__nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+            </ul>
         </nav>
+        <div class="header__icons">
+            <button class="icon">
+                <img src="icon1.png" alt="User Icon">
+            </button>
+            <button class="icon">
+                <img src="icon2.png" alt="Settings Icon">
+            </button>
+        </div>
+    </header>
     </header>
     <!---main que contendrá ambos carroueseles-->
     <main class="main-content">
-        <!-- Primer Carrusel de 5 imágenes de las peliculas mejor valoradas -->
-        <section class="carousel carousel--large">
-            <div class="carousel__main-image">
-                <img id="mainImage" src="../img/Como_entrenar_dragon_3_E.png" alt="Main Image">
-            </div>
-            <div class="carousel__thumbnails">
-                <img src="../img/Como_entrenar_dragon_3_E.png" alt="Image 1" onclick="changeMainImage('../img/Como_entrenar_dragon_3_E.png')">
-                <img src="../img/robot_salvaje.jpg" alt="Image 2" onclick="changeMainImage('../img/robot_salvaje.jpg')">
-                <img src="../img/terrifier-3-4245154.png" alt="Image 3" onclick="changeMainImage('../img/terrifier-3-4245154.png')">
-                <img src="../img/th.png" alt="Image 4" onclick="changeMainImage('../img/th.png')">
-                <img src="../img/Venom-The-Last-Dance.png" alt="Image 5" onclick="changeMainImage('../img/Venom-The-Last-Dance.png')">
-            </div>
-        </section>
-
-        <!-- Segundo Carrusel de 3 imágenes con las cualidades que representan nuestro cine -->
-        <section class="carousel carousel--text">
-            <div class="carousel__main-image">
-                <img id="textCarouselMainImage" src="../img/butaca.png" alt="Main Image">
-            </div>
-            <div class="carousel__thumbnails">
-                <img src="../img/butaca.png" alt="Image A" onclick="changeTextCarouselImage('../img/butaca.png', 'las mejores butacas y mas comodas')">
-                <img src="../img/caracteristicas.png" alt="Image B" onclick="changeTextCarouselImage('../img/caracteristicas.png', 'los mejores efectos')">
-                <img src="../img/pantalla.png" alt="Image C" onclick="changeTextCarouselImage('../img/pantalla.png', 'las mejores pantallas')">
-            </div>
-            <p id="carouselText" class="carousel__text">Texto para imagen A</p>
-        </section>
+       <!-- Carousel -->
+       <section class="carousel">
+        <div class="carousel__main">
+            <button class="carousel__arrow carousel__arrow--left" onclick="previousSlide()">&#10094;</button>
+            <img src="../img/Como_entrenar_dragon_3_E.png" alt="Slide 1" class="carousel__image">
+            <button class="carousel__arrow carousel__arrow--right" onclick="nextSlide()">&#10095;</button>
+        </div>
+        <div class="carousel__thumbnails">
+            <img src="../img/Como_entrenar_dragon_3_E.png" alt="Thumbnail 1" onclick="showSlide(0)" class="carousel__thumbnail">
+            <img src="../img/robot_salvaje.jpg" alt="Thumbnail 2" onclick="showSlide(1)" class="carousel__thumbnail">
+            <img src="../img/smile2png.png" alt="Thumbnail 3" onclick="showSlide(2)" class="carousel__thumbnail">
+            <img src="../img/terrifier-3-4245154.png" alt="Thumbnail 4" onclick="showSlide(3)" class="carousel__thumbnail">
+            <img src="../img/Venom-The-Last-Dance.png" alt="Thumbnail 5" onclick="showSlide(4)" class="carousel__thumbnail">
+        </div>
+    </section>
     </main>
 
-    <footer>
+    <footer class="footer">
         <table class="footer__table">
             <tr>
                 <td rowspan="2" class="footer__logo">
@@ -80,34 +59,19 @@
                 <td rowspan="2" class="footer__credits">
                     <p>Designed by Trasti and Daniel</p>
                 </td>
-                <td class="footer__contact">
-                    <p>Información de Contacto</p>
-                </td>
-                <td class="footer__contact">
-                    <p>Información de Contacto</p>
-                </td>
-                <td class="footer__contact">
-                    <p>Información de Contacto</p>
-                </td>
-                <td class="footer__contact">
-                    <p>Información de Contacto</p>
-                </td>
+                <td class="footer__contact"><p>Información de Contacto</p></td>
+                <td class="footer__contact"><p>Información de Contacto</p></td>
+                <td class="footer__contact"><p>Información de Contacto</p></td>
+                <td class="footer__contact"><p>Información de Contacto</p></td>
             </tr>
             <tr>
-                <td class="footer__contact">
-                    <p>Información de Contacto</p>
-                </td>
-                <td class="footer__contact">
-                    <p>Información de Contacto</p>
-                </td>
-                <td class="footer__contact">
-                    <p>Información de Contacto</p>
-                </td>
-                <td class="footer__contact">
-                    <p>Información de Contacto</p>
-                </td>
+                <td class="footer__contact"><p>Información de Contacto</p></td>
+                <td class="footer__contact"><p>Información de Contacto</p></td>
+                <td class="footer__contact"><p>Información de Contacto</p></td>
+                <td class="footer__contact"><p>Información de Contacto</p></td>
             </tr>
         </table>
-    </footer>
+    </footer>    
+    <script src="../js/main.js"></script>
 </body>
 </html>
