@@ -78,7 +78,7 @@ a {
         .icon {
             width: 35px;
             height: 35px;
-            background-color: $primary-color;
+            background-color: none;
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -170,6 +170,89 @@ a {
     }
 }
 
+/* Carousel Info Styles - Mobile First */
+
+.info-carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px 0;
+
+    &__thumbnails {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        margin-bottom: 100px;
+
+        .info-carousel__thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0.7;
+
+            &:hover {
+                opacity: 1;
+            }
+
+            &.active {
+                transform: scale(2); // Escala mayor para la imagen seleccionada
+                z-index: 2; // Eleva la imagen seleccionada por encima de las demás
+                position: relative; // Evita que la imagen desplazada afecte al layout
+                opacity: 1;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Sombreado opcional
+            }
+        }
+    }
+
+    &__content {
+        text-align: center;
+        width: 80%;
+        .info-carousel__text {
+            display: none; // Ocultar todos los textos por defecto
+            font-size: 1rem;
+            color: $text-color; // Reemplaza $text-color con tu variable de color de texto
+            line-height: 1.5;
+
+            &.active {
+                display: block; // Mostrar solo el texto activo
+                animation: fadeIn 0.3s ease-in-out; // Efecto de aparición
+            }
+        }
+    }
+}
+
+// Animación para la aparición del texto
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+// Animación para la aparición del texto
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
 /* Footer Styles - Mobile First */
 .footer {
     width: 100%;
@@ -180,7 +263,7 @@ a {
 
     &__table {
         width: 100%;
-        max-width: 100%;
+        max-width: 600px;
         margin: 0 auto;
         border-collapse: collapse;
 
@@ -206,12 +289,12 @@ a {
         .footer__credits p {
             font-style: italic;
             color: $text-color;
-            font-size: 0.8rem;
+            font-size: 16px;
         }
 
         .footer__contact p {
             color: $text-color;
-            font-size: 0.8rem;
+            font-size: 16px;
             font-weight: bold;
         }
     }
@@ -220,7 +303,7 @@ a {
 /* Media Queries for Desktop */
 @media (min-width: 768px) {
     .header {
-        width: 100vw;
+        width: 100vw; 
         padding: 1.5rem 2rem;
         display: flex;
         justify-content: center;
