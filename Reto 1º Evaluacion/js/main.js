@@ -1,59 +1,74 @@
 document.addEventListener("DOMContentLoaded", function () {
     let currentSlide = 0;
-    const images = [
-        '../img/Como_entrenar_dragon_3_E.png',
-        '../img/robot_salvaje.jpg',
-        '../img/smile2png.png',
-        '../img/terrifier-3-4245154.png',
-        '../img/Venom-The-Last-Dance.png'
-    ];
-    
-    const mainImage = document.querySelector('.carousel__image');
-    const thumbnails = document.querySelectorAll('.carousel__thumbnail');
-    const arrowLeft = document.querySelector('.carousel__arrow--left');
-    const arrowRight = document.querySelector('.carousel__arrow--right');
+    let peliculas = [];
 
-    
-    const infoThumbnails = document.querySelectorAll('.info-carousel__thumbnail');
-    const texts = document.querySelectorAll('.info-carousel__text');
+    const carouselContainer = document.querySelector('#carousel-container');
 
-    // Mostrar la imagen actual
+    function getTop5Peliculas() {
+        fetch('')
+            .then(response => response.json())
+            .then(data => {
+                peliculas = data; 
+                generateCarousel();
+                showSlide(currentSlide);
+            })
+            .catch(error => console.error('Error al obtener películas:', error));
+    }
+
+    function generateCarousel() {
+
+        // Crear el HTML del carrusel principal y miniaturas
+        let mainImageHTML = `
+            <button class="carousel__arrow carousel__arrow--left" onclick="previousSlide()">&#10094;</button>
+            <img src="${peliculas[0].ImagenBannerUrl}" alt="${peliculas[0].Nombre}" class="carousel__image">
+            <button class="carousel__arrow carousel__arrow--right" onclick="nextSlide()">&#10095;</button>
+        `;
+
+        let thumbnailsHTML = peliculas.map((pelicula, index) => `
+            <img src="${pelicula.ImagenBannerUrl}" alt="${pelicula.Nombre}" 
+                 onclick="showSlide(${index})" class="carousel__thumbnail">
+        `).join('');
+
+        // Insertar el HTML generado en el contenedor
+        carouselContainer.innerHTML = `
+            <div class="carousel__main">${mainImageHTML}</div>
+            <div class="carousel__thumbnails">${thumbnailsHTML}</div>
+        `;
+    }
+
     function showSlide(index) {
         currentSlide = index;
-        mainImage.src = images[currentSlide];
+        const mainImage = document.querySelector('.carousel__image');
+        mainImage.src = peliculas[currentSlide].ImagenBannerUrl;
+
         updateActiveThumbnail();
     }
 
-    // Ir al siguiente slide
     function nextSlide() {
-        currentSlide = (currentSlide + 1) % images.length;
+        currentSlide = (currentSlide + 1) % peliculas.length;
         showSlide(currentSlide);
     }
 
-    // Ir al slide anterior
     function previousSlide() {
-        currentSlide = (currentSlide - 1 + images.length) % images.length;
+        currentSlide = (currentSlide - 1 + peliculas.length) % peliculas.length;
         showSlide(currentSlide);
     }
 
-    // Actualizar la clase activa en la miniatura
     function updateActiveThumbnail() {
+        const thumbnails = document.querySelectorAll('.carousel__thumbnail');
         thumbnails.forEach((thumb, index) => {
             thumb.classList.toggle('active', index === currentSlide);
         });
     }
 
-    // Eventos para las flechas
-    arrowLeft.addEventListener("click", previousSlide);
-    arrowRight.addEventListener("click", nextSlide);
+    // Inicializar el carrusel llamando a la API para obtener las películas
+    getTop5Peliculas();
 
-    // Evento para cada miniatura
-    thumbnails.forEach((thumbnail, index) => {
-        thumbnail.addEventListener("click", () => showSlide(index));
-    });
+    window.nextSlide = nextSlide;
+    window.previousSlide = previousSlide;
+    window.showSlide = showSlide;
+});
 
-    // Iniciar mostrando la primera imagen y la miniatura activa
-    showSlide(currentSlide);
 
 
     
@@ -85,4 +100,3 @@ document.addEventListener("DOMContentLoaded", function () {
         // Quitar clase activa de todas las miniaturas
         infoThumbnails.forEach(thumb => thumb.classList.remove('active'));
     });
-});
