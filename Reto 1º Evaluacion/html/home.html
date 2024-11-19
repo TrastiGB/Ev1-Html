@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Butacoo Home</title>
     <link rel="stylesheet" href="../sass/build/reset.css">
     <link rel="stylesheet" href="../sass/build/main.css">
-    
+
 </head>
+
 <body>
     <header class="header">
         <div class="header__logo">
-            <img src="../img/logo.png" alt="Butacoo Logo">
+            <img src="../img/LogoButacoo.png" alt="Butacoo Logo">
         </div>
         <nav class="header__nav">
             <ul class="header__nav-links">
@@ -22,31 +24,56 @@
         </nav>
         <div class="header__icons">
             <button class="icon">
-                <img src="icon1.png" alt="User Icon">
+                <img src="../img/LogIn.png" alt="User Icon">
             </button>
             <button class="icon">
-                <img src="icon2.png" alt="Settings Icon">
+                <img src="../img/LogOut.png" alt="Settings Icon">
             </button>
         </div>
     </header>
     </header>
     <!---main que contendrá ambos carroueseles-->
     <main class="main-content">
-       <!-- Carousel -->
-       <section class="carousel">
-        <div class="carousel__main">
-            <button class="carousel__arrow carousel__arrow--left" onclick="previousSlide()">&#10094;</button>
-            <img src="../img/Como_entrenar_dragon_3_E.png" alt="Slide 1" class="carousel__image">
-            <button class="carousel__arrow carousel__arrow--right" onclick="nextSlide()">&#10095;</button>
-        </div>
-        <div class="carousel__thumbnails">
-            <img src="../img/Como_entrenar_dragon_3_E.png" alt="Thumbnail 1" onclick="showSlide(0)" class="carousel__thumbnail">
-            <img src="../img/robot_salvaje.jpg" alt="Thumbnail 2" onclick="showSlide(1)" class="carousel__thumbnail">
-            <img src="../img/smile2png.png" alt="Thumbnail 3" onclick="showSlide(2)" class="carousel__thumbnail">
-            <img src="../img/terrifier-3-4245154.png" alt="Thumbnail 4" onclick="showSlide(3)" class="carousel__thumbnail">
-            <img src="../img/Venom-The-Last-Dance.png" alt="Thumbnail 5" onclick="showSlide(4)" class="carousel__thumbnail">
-        </div>
-    </section>
+        <!-- Carousel -->
+        <section class="carousel">
+            <div class="carousel__main">
+                <button class="carousel__arrow carousel__arrow--left" onclick="previousSlide()">&#10094;</button>
+                <img src="../img/Como_entrenar_dragon_3_E.png" alt="Slide 1" class="carousel__image">
+                <button class="carousel__arrow carousel__arrow--right" onclick="nextSlide()">&#10095;</button>
+            </div>
+            <div class="carousel__thumbnails">
+                <img src="../img/Como_entrenar_dragon_3_E.png" alt="Thumbnail 1" onclick="showSlide(0)"
+                    class="carousel__thumbnail">
+                <img src="../img/robot_salvaje.jpg" alt="Thumbnail 2" onclick="showSlide(1)"
+                    class="carousel__thumbnail">
+                <img src="../img/smile2png.png" alt="Thumbnail 3" onclick="showSlide(2)" class="carousel__thumbnail">
+                <img src="../img/terrifier-3-4245154.png" alt="Thumbnail 4" onclick="showSlide(3)"
+                    class="carousel__thumbnail">
+                <img src="../img/Venom-The-Last-Dance.png" alt="Thumbnail 5" onclick="showSlide(4)"
+                    class="carousel__thumbnail">
+            </div>
+        </section>
+        <section class="info-carousel">
+            <div class="info-carousel__thumbnails">
+                <img src="../img/butaca.png" alt="Asientos" onclick="showInfo('Asientos')" class="info-carousel__thumbnail">
+                <img src="../img/pantalla.png" alt="Pantalla" onclick="showInfo('Pantalla')" class="info-carousel__thumbnail">
+                <img src="../img/caracteristicas.png" alt="Audio" onclick="showInfo('Audio')" class="info-carousel__thumbnail">
+                <img src="../img/peliculasOld.png" alt="Peliculas" onclick="showInfo('Peliculas')" class="info-carousel__thumbnail">
+            </div>
+            <div class="info-carousel__content">
+                <p id="info-Asientos" class="info-carousel__text">
+                    En nuestro cine, los asientos están diseñados pensando en tu máxima comodidad. Disfruta de amplios sillones ergonómicos que se adaptan perfectamente a tu postura, cubiertos con un suave tapizado premium que acaricia tu piel. Cada asiento cuenta con reposabrazos individuales, portavasos y un mecanismo reclinable ajustable para que encuentres la posición ideal. Pero no solo es cuestión de confort: la disposición escalonada garantiza una vista sin obstrucciones, sin importar dónde te sientes. Para una experiencia aún más personalizada, algunos asientos incluyen funciones de calefacción y masaje, creando un oasis de lujo mientras disfrutas de la película. Todo está pensado para que cada minuto sea puro placer.
+                <p id="info-Pantalla" class="info-carousel__text">
+                    Nuestra pantalla de última generación redefine lo que significa ver una película. Con tecnología 4K Ultra HD y HDR dinámico, cada imagen cobra vida con colores vibrantes, negros profundos y detalles impresionantes. Además, su tamaño colosal te envuelve completamente, haciendo que te sientas en el corazón de la acción. Para los amantes de las emociones fuertes, ofrecemos películas en 3D y 4D, donde no solo verás, sino que sentirás cada escena. Imagina explosiones que parecen salir de la pantalla o gotas de lluvia que realmente tocan tu piel. Esta experiencia inmersiva es posible gracias a la combinación de tecnología avanzada y un diseño pensado para que cada proyección sea inolvidable.
+                </p>
+                <p id="info-Audio" class="info-carousel__text">
+                    El audio de nuestras salas es tan espectacular como la imagen. Equipadas con sistemas de sonido envolvente Dolby Atmos, cada sala está diseñada para que te sumerjas completamente en la historia. Los altavoces, distribuidos estratégicamente por toda la sala, crean una experiencia tridimensional donde cada susurro, explosión o nota musical cobra vida a tu alrededor. ¿El resultado? Una atmósfera sonora que te transporta a mundos completamente nuevos. Además, el aislamiento acústico asegura que nada interrumpa tu concentración, permitiéndote perderte en el momento. Desde la suavidad de un diálogo íntimo hasta la potencia de un clímax épico, todo está calibrado para cautivar tus sentidos.
+                </p>
+                <p id="info-Peliculas" class="info-carousel__text">
+                    Nuestro cine es un verdadero templo para los amantes del séptimo arte. Aquí encontrarás una selección única que combina lo mejor de las películas clásicas y los estrenos más recientes. Desde los inolvidables tesoros del cine en blanco y negro hasta los éxitos de taquilla que rompen récords, hay algo para todos los gustos y generaciones. Nos enorgullecemos de ofrecer contenido para toda la familia, desde comedias y aventuras animadas hasta thrillers, dramas y películas independientes. Además, contamos con ciclos temáticos y eventos especiales que celebran lo mejor del cine de todos los tiempos. Ven y explora un universo de historias inolvidables en un lugar donde el cine es siempre protagonista.
+                </p>
+            </div>
+        </section>        
     </main>
 
     <footer class="footer">
@@ -59,19 +86,36 @@
                 <td rowspan="2" class="footer__credits">
                     <p>Designed by Trasti and Daniel</p>
                 </td>
-                <td class="footer__contact"><p>Información de Contacto</p></td>
-                <td class="footer__contact"><p>Información de Contacto</p></td>
-                <td class="footer__contact"><p>Información de Contacto</p></td>
-                <td class="footer__contact"><p>Información de Contacto</p></td>
+                <td class="footer__contact">
+                    <p>Información de Contacto</p>
+                </td>
+                <td class="footer__contact">
+                    <p>Información de Contacto</p>
+                </td>
+                <td class="footer__contact">
+                    <p>Información de Contacto</p>
+                </td>
+                <td class="footer__contact">
+                    <p>Información de Contacto</p>
+                </td>
             </tr>
             <tr>
-                <td class="footer__contact"><p>Información de Contacto</p></td>
-                <td class="footer__contact"><p>Información de Contacto</p></td>
-                <td class="footer__contact"><p>Información de Contacto</p></td>
-                <td class="footer__contact"><p>Información de Contacto</p></td>
+                <td class="footer__contact">
+                    <p>Información de Contacto</p>
+                </td>
+                <td class="footer__contact">
+                    <p>Información de Contacto</p>
+                </td>
+                <td class="footer__contact">
+                    <p>Información de Contacto</p>
+                </td>
+                <td class="footer__contact">
+                    <p>Información de Contacto</p>
+                </td>
             </tr>
         </table>
-    </footer>    
+    </footer>
     <script src="../js/main.js"></script>
 </body>
+
 </html>
