@@ -7,7 +7,7 @@
     <title>Butacoo Home</title>
     <link rel="stylesheet" href="../sass/build/reset.css">
     <link rel="stylesheet" href="../sass/build/main.css">
-
+    <script src="../js/main.js"></script>
 </head>
 
 <body>
@@ -31,10 +31,15 @@
             </button>
         </div>
     </header>
-    </header>
     <!---main que contendrá ambos carroueseles-->
     <main class="main-content">
         <!-- Carousel -->
+        <div class="carousel__titulo">
+            <h1>
+                Peliculas favoritas
+            </h1>
+        </div>
+
         <section class="carousel">
             <!---se sacan los datos de innerhtml-->
         </section>
@@ -62,45 +67,27 @@
     </main>
 
     <footer class="footer">
-        <table class="footer__table">
-            <tr>
-                <td rowspan="2" class="footer__logo">
+        <div class="footer__container">
+            <div class="footer__row">
+                <div class="footer__logo">
                     <img src="logo.png" alt="Butacoo66 Logo" width="50">
                     <p>Butacoo66</p>
-                </td>
-                <td rowspan="2" class="footer__credits">
+                </div>
+                <div class="footer__credits">
                     <p>Designed by Trasti and Daniel</p>
-                </td>
-                <td class="footer__contact">
-                    <p>Información de Contacto</p>
-                </td>
-                <td class="footer__contact">
-                    <p>Información de Contacto</p>
-                </td>
-                <td class="footer__contact">
-                    <p>Información de Contacto</p>
-                </td>
-                <td class="footer__contact">
-                    <p>Información de Contacto</p>
-                </td>
-            </tr>
-            <tr>
-                <td class="footer__contact">
-                    <p>Información de Contacto</p>
-                </td>
-                <td class="footer__contact">
-                    <p>Información de Contacto</p>
-                </td>
-                <td class="footer__contact">
-                    <p>Información de Contacto</p>
-                </td>
-                <td class="footer__contact">
-                    <p>Información de Contacto</p>
-                </td>
-            </tr>
-        </table>
+                </div>
+                <div class="footer__contact"><p>Información de Contacto</p></div>
+                <div class="footer__contact"><p>Información de Contacto</p></div>
+                <div class="footer__contact"><p>Información de Contacto</p></div>
+                <div class="footer__contact"><p>Información de Contacto</p></div>
+            </div>
+            <div class="footer__row">
+                <div class="footer__contact"><p>Información de Contacto</p></div>
+                <div class="footer__contact"><p>Información de Contacto</p></div>
+                <div class="footer__contact"><p>Información de Contacto</p></div>
+                <div class="footer__contact"><p>Información de Contacto</p></div>
+            </div>
+        </div>
     </footer>
-    <script src="../js/main.js"></script>
 </body>
-
 </html>

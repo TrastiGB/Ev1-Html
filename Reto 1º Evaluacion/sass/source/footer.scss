@@ -1,0 +1,99 @@
+/* Variables */
+$primary-color: #fff;
+$secondary-color: #282828;
+$text-color: #E7EAEF;
+$footer-bg-color: #000;
+$border-color: #fff; /* Cambiado a blanco */
+
+.footer {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-areas: "credits navs";
+    width: 100%;
+    background-color: $footer-bg-color;
+    padding-top: 10px;
+    color: $text-color;
+
+    /* Sección creditos */
+    &__credits {
+        grid-area: credits;
+        display: flex;
+        align-items: center;
+        border: 1px solid $border-color;
+
+        &__logo {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            gap: 25px;
+            padding: 20px;
+
+            img {
+                width: 50px;
+            }
+
+            p {
+                font-weight: bold;
+                color: $primary-color;
+                margin: 0;
+            }
+        }
+
+        &__copyright {
+            text-align: center;
+
+            p {
+                font-style: italic;
+                font-size: 16px;
+                color: $primary-color;
+                margin: 0;
+            }
+        }
+    }
+
+    /* Sección derecha */
+    &__navs {
+        grid-area: navs;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+        grid-template-rows: repeat(2, auto); /* 2 filas */
+        gap: 0; /* Sin separación interna */
+        flex: 2;
+        border: 1px solid $border-color; /* Borde blanco */
+        background-color: $secondary-color;
+        align-items: center;
+        text-align: center;
+
+        &__item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid $border-color; /* Borde blanco para simular cajas */
+            background-color: $footer-bg-color; /* Fondo oscuro */
+
+            p {
+                font-size: 16px;
+                font-weight: bold;
+                color: $primary-color;
+                margin: 0;
+            }
+        }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        flex-direction: column; /* Cambia a disposición vertical */
+        align-items: center;
+
+        &__credits {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        &__navs {
+            grid-template-columns: repeat(2, 1fr); /* Cambia a 2 columnas */
+        }
+    }
+}
