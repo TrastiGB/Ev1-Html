@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="../sass/build/reset.css">
     <link rel="stylesheet" href="../sass/build/header.css">
     <link rel="stylesheet" href="../sass/build/footer.css">
+    <link rel="stylesheet" href="../sass/build/filtros.css">
+    <script src="../js/movies.js"></script>
 
 </head>
 
@@ -32,9 +34,45 @@
             </button>
         </div>
     </header>
-    <main>
 
+    <main class="main-content">
+        <!-- Categorías -->
+        <aside class="categories">
+            <div class="categories__search">
+                <input type="text" id="searchInput" placeholder="Buscar..." class="categories__input">
+                <button id="searchButton" class="categories__button">
+                    <img src="../img/icons/lupa.png" alt="Buscar">
+                </button>
+            </div>
+            <ul class="categories__list">
+                <li><button id="accion" class="categories__item">Acción</button></li>
+                <li><button id="aventura" class="categories__item">Aventura</button></li>
+                <li><button id="ciencia-ficcion" class="categories__item">Ciencia Ficción</button></li>
+                <li><button id="superheroes" class="categories__item">Superhéroes</button></li>
+                <li><button id="drama" class="categories__item">Drama</button></li>
+                <li><button id="fantasia" class="categories__item">Fantasía</button></li>
+                <li><button id="suspenso" class="categories__item">Suspenso</button></li>
+                <li><button id="terror" class="categories__item">Terror</button></li>
+                <li><button id="thriller" class="categories__item">Thriller</button></li>
+                <li><button id="animacion" class="categories__item">Animación</button></li>
+                <li><button id="guerra" class="categories__item">Guerra</button></li>
+                <li><button id="historia" class="categories__item">Historia</button></li>
+                <li><button id="musical" class="categories__item">Musical</button></li>
+                <li><button id="romance" class="categories__item">Romance</button></li>
+                <li><button id="comedia" class="categories__item">Comedia</button></li>
+                <li><button id="comedia-negra" class="categories__item">Comedia Negra</button></li>
+                <li><button id="misterio" class="categories__item">Misterio</button></li>
+                <li><button id="gore" class="categories__item">Gore</button></li>
+            </ul>
+        </aside>
+
+        <!-- Sección de películas -->
+        <section class="movies">
+            <div class="movies__container" id="moviesContainer">
+            </div>
+        </section>
     </main>
+
     <footer class="footer">
         <div class="footer__credits">
             <div class="footer__credits__logo">
