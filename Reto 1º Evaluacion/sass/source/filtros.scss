@@ -1,0 +1,172 @@
+// Variables
+$primary-color: #fff;
+$secondary-color: #000;
+$text-color: #E7EAEF;
+$categories-bg-color: #333;
+$categories-hover-color: lighten($categories-bg-color, 10%);
+$button-bg-color: #444;
+$button-hover-color: lighten($button-bg-color, 10%);
+$card-bg-color: #444;
+$card-button-bg: #FFD600;
+$card-button-hover: darken($card-button-bg, 10%);
+$card-border-radius: 10px;
+
+// General
+body {
+    font-family: Arial, sans-serif;
+    color: $text-color;
+    background-color: $secondary-color;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+// Categories (barra lateral)
+.categories {
+    width: 100%;
+    padding: 20px;
+    background-color: $categories-bg-color;
+
+    &__search {
+        display: flex;
+        justify-content: space-between;
+        background-color: lighten($categories-bg-color, 10%);
+        padding: 10px;
+        border-radius: 5px;
+
+        input {
+            border: none;
+            background-color: transparent;
+            color: $text-color;
+            flex: 1;
+            margin-right: 10px;
+
+            &::placeholder {
+                color: lighten($text-color, 20%);
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+
+            img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__item {
+        background-color: $button-bg-color;
+        padding: 10px;
+        border-radius: 5px;
+        color: $text-color;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $button-hover-color;
+        }
+    }
+
+    // Responsive para desktop
+    @media (min-width: 768px) {
+        width: 250px;
+        position: fixed;
+        height: 100vh;
+        overflow-y: auto;
+
+        &__list {
+            flex-direction: column;
+        }
+    }
+}
+
+// Movies Section
+.movies {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+
+    &__container {
+        display: flex;
+        flex-wrap: wrap; // Permite que las cartas salten a una nueva línea automáticamente
+        gap: 100px; // Espaciado entre cartas
+        justify-content: center;
+
+        @media (min-width: 768px) {
+            width: calc((200px * 5) + (100px * 4)); // Ajuste para 5 cartas y 4 gaps
+            max-width: 1600px; // Limitar el ancho máximo del contenedor
+            margin: 0 auto; // Centrar el contenedor
+        }
+    }
+}
+
+// Movie Card
+.movie-card {
+    width: 200px; // Ancho fijo de la carta
+    height: 300px; // Alto fijo de la carta
+    background-color: $card-bg-color;
+    border-radius: $card-border-radius;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    &__image {
+        width: 100%; // Ocupa todo el ancho de la carta
+        height: 60%; // Imagen ocupa el 60% de la altura total
+        object-fit: cover;
+        border-radius: $card-border-radius $card-border-radius 0 0;
+    }
+
+    &__title {
+        flex: 1; // Ocupa el espacio restante de la carta
+        margin: 10px 0;
+        font-size: 14px;
+        color: $text-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__button {
+        background-color: $card-button-bg;
+        padding: 10px;
+        font-size: 14px;
+        border: none;
+        border-radius: $card-border-radius;
+        color: $text-color;
+        cursor: pointer;
+        margin-top: auto; // Empuja el botón al final de la carta
+
+        &:hover {
+            background-color: $card-button-hover;
+        }
+    }
+}
+
+// Responsive para desktop
+@media (min-width: 768px) {
+    .movies__container {
+        gap: 100px; // Espaciado uniforme entre las cartas
+    }
+}
