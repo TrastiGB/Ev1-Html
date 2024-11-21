@@ -1,11 +1,16 @@
 /* Variables */
 $primary-color: #fff;
 $secondary-color: #000;
-$text-color: #E7EAEF; /* Color de texto para el footer */
-$header-bg-color: rgba(0, 0, 0, 0.6); /* Fondo negro semitransparente */
-$footer-bg-color: #000; /* Fondo del footer igual al de la página */
-$border-color: #E7EAEF; /* Color de bordes del footer */
-$max-width: 1200px; /* Ancho máximo para elementos centrados */
+$text-color: #E7EAEF;
+/* Color de texto para el footer */
+$header-bg-color: rgba(0, 0, 0, 0.6);
+/* Fondo negro semitransparente */
+$footer-bg-color: #000;
+/* Fondo del footer igual al de la página */
+$border-color: #E7EAEF;
+/* Color de bordes del footer */
+$max-width: 1200px;
+/* Ancho máximo para elementos centrados */
 
 /* Base */
 *,
@@ -30,18 +35,18 @@ a {
 /* Header Styles - Mobile First */
 .header {
     width: 100%;
-    background-image: url('../../img/banners/banner.png'); 
+    background-image: url('../../img/banners/banner.png');
     background-size: cover;
     background-position: center;
-    padding: 1rem;
+    padding: 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
+
     &__logo {
         display: flex;
         align-items: center;
-        
+
         img {
             width: 40px;
             margin-right: 10px;
@@ -55,15 +60,16 @@ a {
 
         &-links {
             display: flex;
-            gap: 1rem;
+            gap: 16px;
             background-color: $header-bg-color;
-            padding: 0.5rem 1rem;
+            padding: 8px 16px;
             border-radius: 5px;
-            
+
             a {
                 color: $primary-color;
-                font-size: 1rem;
+                font-size: 16px;
                 font-weight: bold;
+
                 &:hover {
                     color: lighten($primary-color, 20%);
                 }
@@ -73,7 +79,7 @@ a {
 
     &__icons {
         display: flex;
-        gap: 0.5rem;
+        gap: 8px;
 
         .icon {
             width: 35px;
@@ -98,24 +104,51 @@ a {
     }
 }
 
+/* Main Content y Titles - Mobile First */
+
+.main-content {
+    padding: 20px 15px; // Espaciado general
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    /* Carousel titulo */
+
+    .carousel__titulo {
+        margin: 40px 0px;
+        text-align: center;
+
+        h1 {
+            font-size: 32px; // Ajusta el tamaño según necesites
+            font-weight: bold;
+            color: $text-color; // Reemplaza por tu variable o color deseado
+            margin: 0;
+        }
+    }
+}
+
+
 /* Carousel Styles - Mobile First */
 .carousel {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem 0;
+    padding: 16px 0;
 
     &__main {
         position: relative;
         width: 100%;
         max-width: 600px;
         overflow: hidden;
-        height: 400px; /* Altura fija para evitar el descuadre */
+        height: 400px;
+        /* Altura fija para evitar el descuadre */
 
         .carousel__image {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ajusta la imagen para llenar el contenedor sin distorsión */
+            object-fit: cover;
+            /* Ajusta la imagen para llenar el contenedor sin distorsión */
             border-radius: 8px;
         }
 
@@ -126,18 +159,18 @@ a {
             background-color: rgba(0, 0, 0, 0.5);
             color: $primary-color;
             border: none;
-            font-size: 2rem;
-            padding: 0.5rem;
+            font-size: 32px;
+            padding: 8px;
             cursor: pointer;
             border-radius: 50%;
             z-index: 1;
 
             &--left {
-                left: 0.5rem;
+                left: 8px;
             }
 
             &--right {
-                right: 0.5rem;
+                right: 8px;
             }
 
             &:hover {
@@ -149,8 +182,8 @@ a {
     &__thumbnails {
         display: flex;
         justify-content: center;
-        gap: 0.5rem;
-        margin-top: 1rem;
+        gap: 8px;
+        margin-top: 16px;
 
         .carousel__thumbnail {
             width: 50px;
@@ -210,11 +243,12 @@ a {
     &__content {
         text-align: center;
         width: 80%;
+
         .info-carousel__text {
             display: none; // Ocultar todos los textos por defecto
-            font-size: 1rem;
+            font-size: 16px;
             color: $text-color; // Reemplaza $text-color con tu variable de color de texto
-            line-height: 1.5;
+            line-height: 24px;
 
             &.active {
                 display: block; // Mostrar solo el texto activo
@@ -230,28 +264,12 @@ a {
         opacity: 0;
         transform: translateY(-10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
-
-
-// Animación para la aparición del texto
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-
-
 
 /* Footer Styles - Mobile First */
 .footer {
@@ -261,50 +279,82 @@ a {
     text-align: center;
     color: $text-color;
 
-    &__table {
+    &__container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
         width: 100%;
         max-width: 600px;
         margin: 0 auto;
-        border-collapse: collapse;
+    }
 
-        td {
-            border: 1px solid $border-color;
-            padding: 8px;
-            vertical-align: middle;
-            color: $text-color;
-            background-color: $secondary-color;
-        }
+    &__row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        border: 1px solid $border-color;
+    }
 
-        .footer__logo img {
+    &__logo {
+        flex: 1 1 20%;
+        text-align: center;
+        border-right: 1px solid $border-color;
+        padding: 8px;
+
+        img {
             display: block;
             margin: 0 auto 5px;
             width: 35px;
         }
 
-        .footer__logo p {
+        p {
             font-weight: bold;
             margin-top: 5px;
         }
+    }
 
-        .footer__credits p {
+    &__credits {
+        flex: 1 1 30%;
+        text-align: center;
+        border-right: 1px solid $border-color;
+        padding: 8px;
+
+        p {
             font-style: italic;
             color: $text-color;
             font-size: 16px;
         }
+    }
 
-        .footer__contact p {
+    &__contact {
+        flex: 1 1 25%;
+        text-align: center;
+        padding: 8px;
+        border-right: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
+
+        &:last-child {
+            border-right: none;
+        }
+
+        p {
             color: $text-color;
             font-size: 16px;
             font-weight: bold;
         }
+    }
+
+    /* For the last row in the grid */
+    &__row:last-child .footer__contact {
+        border-bottom: none;
     }
 }
 
 /* Media Queries for Desktop */
 @media (min-width: 768px) {
     .header {
-        width: 100vw; 
-        padding: 1.5rem 2rem;
+        width: 100vw;
+        padding: 24px 32px;
         display: flex;
         justify-content: center;
 
@@ -321,7 +371,7 @@ a {
         }
 
         &__nav-links a {
-            font-size: 1.2rem;
+            font-size: 19.2px;
         }
 
         &__icons .icon {
@@ -337,49 +387,38 @@ a {
 
     .carousel__main {
         max-width: 800px;
-        height: 500px; /* Altura fija para escritorio */
-    }
-
-    .footer {
-        padding: 20px 0;
-
-        &__table {
-            max-width: $max-width;
-            width: 100%;
-            margin: 0 auto;
-
-            td {
-                padding: 15px;
-            }
-
-            .footer__logo img {
-                width: 50px;
-            }
-
-            .footer__credits p {
-                font-size: 1rem;
-            }
-
-            .footer__contact p {
-                font-size: 0.9rem;
-            }
-        }
+        height: 500px;
+        /* Altura fija para escritorio */
     }
 }
 
 @media (min-width: 1024px) {
-    .header {
-        padding: 1.5rem 2rem;
-    }
+    .footer {
+        padding: 20px 0;
 
-    .footer__table {
-        td {
-            padding: 20px;
+        &__container {
+            gap: 20px;
         }
 
-        .footer__credits p,
-        .footer__contact p {
-            font-size: 1rem;
+        &__row {
+            border: none;
+            /* Borders managed on children */
+        }
+
+        &__logo img {
+            width: 50px;
+        }
+
+        &__credits p {
+            font-size: 16px;
+        }
+
+        &__contact p {
+            font-size: 14.4px;
+        }
+
+        &__contact {
+            padding: 15px;
         }
     }
 }

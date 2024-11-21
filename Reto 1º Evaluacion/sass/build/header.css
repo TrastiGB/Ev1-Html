@@ -1,0 +1,121 @@
+@charset "UTF-8";
+/* Variables */
+/* Color de texto para el footer */
+/* Fondo negro semitransparente */
+/* Fondo del footer igual al de la página */
+/* Color de bordes del footer */
+/* Ancho máximo para elementos centrados */
+/* Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #E7EAEF;
+  background-color: #000;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header Styles - Mobile First */
+.header {
+  width: 100%;
+  background-image: url("../../img/banners/banner.png");
+  background-size: cover;
+  background-position: center;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__logo {
+  display: flex;
+  align-items: center;
+}
+.header__logo img {
+  width: 40px;
+  margin-right: 10px;
+}
+.header__nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.header__nav-links {
+  display: flex;
+  gap: 16px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+.header__nav-links a {
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+}
+.header__nav-links a:hover {
+  color: white;
+}
+.header__icons {
+  display: flex;
+  gap: 8px;
+}
+.header__icons .icon {
+  width: 35px;
+  height: 35px;
+  background-color: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+.header__icons .icon:hover {
+  opacity: 1;
+}
+.header__icons .icon img {
+  width: 18px;
+  height: 18px;
+}
+
+/* Media Queries for Desktop */
+@media (min-width: 768px) {
+  .header {
+    width: 100vw;
+    padding: 24px 32px;
+    display: flex;
+    justify-content: center;
+  }
+  .header__content {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header__logo img {
+    width: 60px;
+  }
+  .header__nav-links a {
+    font-size: 19.2px;
+  }
+  .header__icons .icon {
+    width: 50px;
+    height: 50px;
+  }
+  .header__icons .icon img {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+/*# sourceMappingURL=header.css.map */
