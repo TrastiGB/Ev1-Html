@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Butacoo Home</title>
     <link rel="stylesheet" href="../sass/build/reset.css">
+    <link rel="stylesheet" href="../sass/build/header.css">
+    <link rel="stylesheet" href="../sass/build/footer.css">
     <link rel="stylesheet" href="../sass/build/main.css">
     <script src="../js/main.js"></script>
 </head>
@@ -13,21 +15,21 @@
 <body>
     <header class="header">
         <div class="header__logo">
-            <img src="../img/img_normales/" alt="Butacoo Logo">
+            <img src="../img//icons/LogoButacoo.png" alt="Butacoo Logo">
         </div>
         <nav class="header__nav">
             <ul class="header__nav-links">
-                <li><a href="#">Home</a></li>
+                <li><a href="home.html">Home</a></li>
                 <li><a href="movies.html">Movies</a></li>
                 <li><a href="aboutus.html">About Us</a></li>
             </ul>
         </nav>
         <div class="header__icons">
             <button class="icon">
-                <img src="../img/img_normales/LogIn.png" alt="User Icon">
+                <img src="../img/icons/LogIn.png" alt="User Icon">
             </button>
             <button class="icon">
-                <img src="../img/img_normales/LogOut.png" alt="Settings Icon">
+                <img src="../img/icons/LogOut.png" alt="Settings Icon">
             </button>
         </div>
     </header>
@@ -45,10 +47,10 @@
         </section>
         <section class="info-carousel">
             <div class="info-carousel__thumbnails">
-                <img src="../img/img_normales/butaca.png" alt="Asientos" onclick="showInfo('Asientos')" class="info-carousel__thumbnail">
-                <img src="../img/img_normales/pantalla.png" alt="Pantalla" onclick="showInfo('Pantalla')" class="info-carousel__thumbnail">
-                <img src="../img/img_normales/caracteristicas.png" alt="Audio" onclick="showInfo('Audio')" class="info-carousel__thumbnail">
-                <img src="../img/img_normales/peliculasOld.png" alt="Peliculas" onclick="showInfo('Peliculas')" class="info-carousel__thumbnail">
+                <img src="../img/icons/butaca.png" alt="Asientos" class="info-carousel__thumbnail">
+                <img src="../img/icons/pantalla.png" alt="Pantalla" class="info-carousel__thumbnail">
+                <img src="../img/icons/caracteristicas.png" alt="Audio" class="info-carousel__thumbnail">
+                <img src="../img/icons/peliculasOld.png" alt="Peliculas" class="info-carousel__thumbnail">
             </div>
             <div class="info-carousel__content">
                 <p id="info-Asientos" class="info-carousel__text">
@@ -67,27 +69,25 @@
     </main>
 
     <footer class="footer">
-        <div class="footer__container">
-            <div class="footer__row">
-                <div class="footer__logo">
-                    <img src="logo.png" alt="Butacoo66 Logo" width="50">
-                    <p>Butacoo66</p>
-                </div>
-                <div class="footer__credits">
-                    <p>Designed by Trasti and Daniel</p>
-                </div>
-                <div class="footer__contact"><p>Información de Contacto</p></div>
-                <div class="footer__contact"><p>Información de Contacto</p></div>
-                <div class="footer__contact"><p>Información de Contacto</p></div>
-                <div class="footer__contact"><p>Información de Contacto</p></div>
+        <div class="footer__credits">
+            <div class="footer__credits__logo">
+                <img src="../img/icons/LogoButacoo.png" alt="Butacoo66 Logo" />
+                <p>Butacoo66</p>
             </div>
-            <div class="footer__row">
-                <div class="footer__contact"><p>Información de Contacto</p></div>
-                <div class="footer__contact"><p>Información de Contacto</p></div>
-                <div class="footer__contact"><p>Información de Contacto</p></div>
-                <div class="footer__contact"><p>Información de Contacto</p></div>
+            <div class="footer__credits__copyright">
+                <p>Designed By Trasti and Daniel</p>
             </div>
         </div>
-    </footer>
+        <div class="footer__navs">
+            <div class="footer__box1"><p>Información de Contacto</p></div>
+            <div class="footer__box2"><p>Información de Contacto</p></div>
+            <div class="footer__box3"><p>Información de Contacto</p></div>
+            <div class="footer__box4"><p>Información de Contacto</p></div>
+            <div class="footer__box5"><p>Información de Contacto</p></div>
+            <div class="footer__box6"><p>Información de Contacto</p></div>
+            <div class="footer__box7"><p>Información de Contacto</p></div>
+            <div class="footer__box8"><p>Información de Contacto</p></div>
+        </div>
+    </footer>   
 </body>
 </html>
