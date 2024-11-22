@@ -28,7 +28,8 @@ a {
 /* Header Styles - Mobile First */
 .header {
   width: 100%;
-  background-image: url("../../img/banners/banner.png");
+  height: 75px;
+  background-image: url("../../img/icons/banner.png");
   background-size: cover;
   background-position: center;
   padding: 16px;

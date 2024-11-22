@@ -22,7 +22,9 @@ function mostrarPeliculas(peliculas) {
     peliculas.forEach(pelicula => {
         const peliculaHTML = `
             <div class="movie-card">
+                <div class="movie-card__imagen__estandar">
                 <img src="../img/img_normales/${pelicula.imagenPequeniaUrl}" alt="${pelicula.nombre}" class="movie-card__image">
+                </div>
                 <h3 class="movie-card__title">${pelicula.nombre}</h3>
                 <button class="movie-card__button" onclick="verMasInformacion('${pelicula.id}')">Más Información</button>
             </div>
