@@ -83,38 +83,39 @@ document.addEventListener("DOMContentLoaded", function () {
     window.nextSlide = nextSlide;
     window.previousSlide = previousSlide;
     window.showSlide = showSlide;
-});
 
+        //constantes necesarias para segundo
 
-    //constantes necesarias para segundo
-    const infoThumbnails = document.querySelectorAll('.info-carousel__thumbnail');
-    const texts = document.querySelectorAll('.info-carousel__text');
-
-
-    function showInfo(category) {
-        // Ocultar todos los textos
-        texts.forEach(text => text.classList.remove('active'));
-        // Quitar clase activa de todas las miniaturas
-        infoThumbnails.forEach(thumb => thumb.classList.remove('active'));
-        // Mostrar texto correspondiente
-        document.getElementById(`info-${category}`).classList.add('active');
-        // Agregar clase activa a la miniatura seleccionada
-        event.target.classList.add('active');
-    }
+        const infoThumbnails = document.querySelectorAll('.info-carousel__thumbnail');
+        const texts = document.querySelectorAll('.info-carousel__text');
     
-    // Configurar evento de clic en cada miniatura
-    infoThumbnails.forEach(thumb => {
-        thumb.addEventListener('click', event => {
-            const category = event.target.alt;
-            showInfo(category);
-            event.stopPropagation(); // Evita que el clic se propague al documento
+    
+        function showInfo(category) {
+            // Ocultar todos los textos
+            texts.forEach(text => text.classList.remove('active'));
+            // Quitar clase activa de todas las miniaturas
+            infoThumbnails.forEach(thumb => thumb.classList.remove('active'));
+            // Mostrar texto correspondiente
+            document.getElementById(`info-${category}`).classList.add('active');
+            // Agregar clase activa a la miniatura seleccionada
+            event.target.classList.add('active');
+        }
+        
+        // Configurar evento de clic en cada miniatura
+        infoThumbnails.forEach(thumb => {
+            thumb.addEventListener('click', event => {
+                const category = event.target.alt;
+                showInfo(category);
+                event.stopPropagation(); // Evita que el clic se propague al documento
+            });
         });
-    });
+        
+        // Detectar clics fuera de las miniaturas para ocultar el texto y restaurar el tamaño
+        document.addEventListener('click', () => {
+            // Ocultar todos los textos
+            texts.forEach(text => text.classList.remove('active'));
+            // Quitar clase activa de todas las miniaturas
+            infoThumbnails.forEach(thumb => thumb.classList.remove('active'));
+        });
     
-    // Detectar clics fuera de las miniaturas para ocultar el texto y restaurar el tamaño
-    document.addEventListener('click', () => {
-        // Ocultar todos los textos
-        texts.forEach(text => text.classList.remove('active'));
-        // Quitar clase activa de todas las miniaturas
-        infoThumbnails.forEach(thumb => thumb.classList.remove('active'));
-    });
+});
