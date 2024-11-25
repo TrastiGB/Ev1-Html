@@ -1,0 +1,104 @@
+/* Variables */
+$primary-color: #202020;
+$secondary-color: #ffffff;
+$accent-color: #007bff;
+$font-family: 'Arial, sans-serif';
+
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: $font-family;
+  color: $secondary-color;
+  background-color: $primary-color;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.movie {
+  margin-top: 80px;
+
+  &__banner {
+    position: relative;
+
+    &-img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 32px;
+    }
+  }
+
+  &__poster {
+    flex: 1;
+
+    &-img {
+      max-width: 100%;
+      border-radius: 10px;
+
+      @media (min-width: 768px) {
+        max-width: 300px;
+      }
+    }
+  }
+
+  &__info {
+    flex: 2;
+    text-align: center;
+
+    @media (min-width: 768px) {
+      text-align: left;
+    }
+
+    &__title {
+      font-size: 32px;
+      margin: 16px 0;
+    }
+
+    &__rating {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 24px;
+      margin: 16px 0;
+    }
+
+    &__ticket-btn {
+      background-color: $accent-color;
+      color: $secondary-color;
+      border: none;
+      padding: 8px 16px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 16px;
+
+      &:hover {
+        background-color: darken($accent-color, 10%);
+      }
+    }
+
+    &__overview-title {
+      font-size: 24px;
+      margin: 16px 0;
+    }
+
+    &__overview {
+      font-size: 16px;
+      line-height: 150%;
+    }
+  }
+}
