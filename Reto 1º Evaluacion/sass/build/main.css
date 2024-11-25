@@ -35,7 +35,7 @@ a {
   /* Carousel titulo */
 }
 .main-content .carousel__titulo {
-  margin: 40px 0px;
+  margin: 50px 0px;
   text-align: center;
 }
 .main-content .carousel__titulo h1 {
@@ -67,9 +67,45 @@ a {
   /* Ajusta la imagen para llenar el contenedor sin distorsión */
   border-radius: 8px;
 }
-.carousel__main .carousel__arrow {
+.carousel__main .carousel__movie__info {
   position: absolute;
-  top: 50%;
+  bottom: 0;
+  height: 25%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.carousel__main .carousel__movie__info .carousel__movie__title {
+  margin-left: 2%;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.carousel__main .carousel__movie__info .movie__ticket-btn {
+  margin-left: 2%;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #fff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.carousel__main .carousel__movie__info .movie__ticket-btn:hover {
+  background-color: #e6e6e6;
+}
+.carousel__thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+.carousel__thumbnails .carousel__arrow {
+  margin-top: 5%;
   transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
@@ -80,20 +116,14 @@ a {
   border-radius: 50%;
   z-index: 1;
 }
-.carousel__main .carousel__arrow--left {
+.carousel__thumbnails .carousel__arrow--left {
   left: 8px;
 }
-.carousel__main .carousel__arrow--right {
+.carousel__thumbnails .carousel__arrow--right {
   right: 8px;
 }
-.carousel__main .carousel__arrow:hover {
+.carousel__thumbnails .carousel__arrow:hover {
   background-color: rgba(0, 0, 0, 0.8);
-}
-.carousel__thumbnails {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 16px;
 }
 .carousel__thumbnails .carousel__thumbnail {
   width: 50px;

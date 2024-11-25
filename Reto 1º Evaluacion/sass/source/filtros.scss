@@ -11,19 +11,6 @@ $card-button-bg: #FFD600;
 $card-button-hover: darken($card-button-bg, 10%);
 $card-border-radius: 10px;
 
-// Sticky Header
-.header {
-    position: sticky;
-    top: 0; // Fija el header en la parte superior
-    z-index: 1000; // Asegura que el header quede por encima de otros elementos
-}
-
-// Sticky Footer
-.footer {
-    position: sticky;
-    bottom: 0; // Fija el footer en la parte inferior
-    z-index: 1000; // Por debajo de header y sidebar
-}
 
 // General
 body {
@@ -44,9 +31,8 @@ a {
     width: 100%;
     padding: 20px;
     background-color: $categories-bg-color;
-    position: sticky;
     top: 60px; // Deja espacio suficiente para el header sticky
-    z-index: 900; // Por debajo del header pero por encima de otros elementos
+    z-index: 500; // Por debajo del header pero por encima de otros elementos
     height: calc(100vh - 60px); // Calcula el alto restante bajo el header
     overflow-y: auto; // Permite scroll dentro de la barra lateral
 

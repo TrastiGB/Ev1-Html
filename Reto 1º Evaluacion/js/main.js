@@ -28,21 +28,27 @@ document.addEventListener("DOMContentLoaded", function () {
         // Construir la imagen principal con la primera película
         let mainImageHTML = `
             <div class="carousel__main">
-                <button class="carousel__arrow carousel__arrow--left" onclick="previousSlide()">&#10094;</button>
+                <div class="carousel__movie__info">
+                    <h1 class="carousel__movie__title">${peliculas[0].nombre}</h1>
+                    <div><button class="movie__ticket-btn">Buy Tickets</button></div>
+                </div>
                 <img src="../img/banners/${peliculas[0].imagenBannerUrl}" alt="${peliculas[0].nombre}" class="carousel__image">
-                <button class="carousel__arrow carousel__arrow--right" onclick="nextSlide()">&#10095;</button>
             </div>
         `;
 
         // Construir las miniaturas
-        let thumbnailsHTML = `<div class="carousel__thumbnails">`;
+        let thumbnailsHTML = `
+            <div class="carousel__thumbnails">
+            <button class="carousel__arrow carousel__arrow--left" onclick="previousSlide()">&#10094;</button>`;
         peliculas.forEach((pelicula, index) => {
             thumbnailsHTML += `
-                <img src=../img/banners/${pelicula.imagenBannerUrl} alt="${pelicula.nombre}" 
-                     onclick="showSlide(${index})" class="carousel__thumbnail">
+            <img src=../img/banners/${pelicula.imagenBannerUrl} alt="${pelicula.nombre}" onclick="showSlide(${index})" class="carousel__thumbnail">
             `;
         });
-        thumbnailsHTML += `</div>`;
+        thumbnailsHTML += `
+            <button class="carousel__arrow carousel__arrow--right" onclick="nextSlide()">&#10095;</button>
+            </div>
+            `;
 
         // Asignar el HTML construido al contenedor del carrusel
         carouselContainer.innerHTML = mainImageHTML + thumbnailsHTML;
@@ -84,38 +90,38 @@ document.addEventListener("DOMContentLoaded", function () {
     window.previousSlide = previousSlide;
     window.showSlide = showSlide;
 
-        //constantes necesarias para segundo
+    //constantes necesarias para segundo
 
-        const infoThumbnails = document.querySelectorAll('.info-carousel__thumbnail');
-        const texts = document.querySelectorAll('.info-carousel__text');
-    
-    
-        function showInfo(category) {
-            // Ocultar todos los textos
-            texts.forEach(text => text.classList.remove('active'));
-            // Quitar clase activa de todas las miniaturas
-            infoThumbnails.forEach(thumb => thumb.classList.remove('active'));
-            // Mostrar texto correspondiente
-            document.getElementById(`info-${category}`).classList.add('active');
-            // Agregar clase activa a la miniatura seleccionada
-            event.target.classList.add('active');
-        }
-        
-        // Configurar evento de clic en cada miniatura
-        infoThumbnails.forEach(thumb => {
-            thumb.addEventListener('click', event => {
-                const category = event.target.alt;
-                showInfo(category);
-                event.stopPropagation(); // Evita que el clic se propague al documento
-            });
+    const infoThumbnails = document.querySelectorAll('.info-carousel__thumbnail');
+    const texts = document.querySelectorAll('.info-carousel__text');
+
+
+    function showInfo(category) {
+        // Ocultar todos los textos
+        texts.forEach(text => text.classList.remove('active'));
+        // Quitar clase activa de todas las miniaturas
+        infoThumbnails.forEach(thumb => thumb.classList.remove('active'));
+        // Mostrar texto correspondiente
+        document.getElementById(`info-${category}`).classList.add('active');
+        // Agregar clase activa a la miniatura seleccionada
+        event.target.classList.add('active');
+    }
+
+    // Configurar evento de clic en cada miniatura
+    infoThumbnails.forEach(thumb => {
+        thumb.addEventListener('click', event => {
+            const category = event.target.alt;
+            showInfo(category);
+            event.stopPropagation(); // Evita que el clic se propague al documento
         });
-        
-        // Detectar clics fuera de las miniaturas para ocultar el texto y restaurar el tamaño
-        document.addEventListener('click', () => {
-            // Ocultar todos los textos
-            texts.forEach(text => text.classList.remove('active'));
-            // Quitar clase activa de todas las miniaturas
-            infoThumbnails.forEach(thumb => thumb.classList.remove('active'));
-        });
-    
+    });
+
+    // Detectar clics fuera de las miniaturas para ocultar el texto y restaurar el tamaño
+    document.addEventListener('click', () => {
+        // Ocultar todos los textos
+        texts.forEach(text => text.classList.remove('active'));
+        // Quitar clase activa de todas las miniaturas
+        infoThumbnails.forEach(thumb => thumb.classList.remove('active'));
+    });
+
 });

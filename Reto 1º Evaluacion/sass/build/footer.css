@@ -9,6 +9,7 @@
   height: 90px;
   background-color: #000;
   color: #E7EAEF;
+  z-index: 1000;
   /* Sección creditos */
   /* Sección derecha */
   /* Responsive Styles */
