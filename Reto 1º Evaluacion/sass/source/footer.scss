@@ -13,6 +13,7 @@ $border-color: #fff; /* Cambiado a blanco */
     height: 90px;
     background-color: $footer-bg-color;
     color: $text-color;
+    z-index: 1000;
 
     /* Sección creditos */
     &__credits {
