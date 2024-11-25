@@ -1,0 +1,97 @@
+// Variables de colores
+$verde: #28a745;
+$azul: #007bff;
+$rojo: #dc3545;
+$gris: #f8f9fa;
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.seating-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.seating-chart {
+  display: grid;
+  grid-template-columns: repeat(5, 50px); 
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.seat {
+  width: 50px;
+  height: 50px;
+  background-color: $verde;
+  cursor: pointer;
+  border: 2px solid #000;
+  border-radius: 5px;
+
+  &.ocupado {
+    background-color: $rojo;
+    cursor: not-allowed;
+  }
+
+  &.selected {
+    background-color: $azul;
+  }
+
+  &.comprado {
+    background-color: $rojo;
+  }
+}
+
+// Estilo para el contenedor de resumen
+.summary {
+  margin-top: 20px;
+  text-align: center;
+  padding: 10px;
+  background-color: $gris;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+  #summary-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin: 5px 0;
+      font-size: 16px;
+    }
+
+    li:last-child {
+      font-weight: bold;
+      border-top: 1px solid #000;
+      margin-top: 10px;
+      padding-top: 10px;
+    }
+  }
+
+  button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: $azul;
+    color: white;
+    border: none;
+    border-radius: 5px;
+
+    &:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .seating-chart {
+    grid-template-columns: repeat(10, 50px); 
+  }
+}
