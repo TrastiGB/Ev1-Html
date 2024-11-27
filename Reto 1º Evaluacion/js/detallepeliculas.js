@@ -1,7 +1,6 @@
 const idPelicula = localStorage.getItem('idPelicula');
 
 function fetchInfoPelicula() {
-  // Obtiene los datos de la película
   fetch(`https://localhost:7103/Sesion/sesionesPelicula/${idPelicula}`)
     .then(response => {
       if (!response.ok) {
@@ -10,8 +9,8 @@ function fetchInfoPelicula() {
       return response.json();
     })
     .then(data => {
-      mostrarPelicula(data[0].pelicula); // Se asume que la primera sesión tiene la información de la película
-      mostrarSesiones(data); // Se pasa el array completo de sesiones
+      mostrarPelicula(data[0].pelicula);
+      setupMostrarSesiones(data);
     })
     .catch(error => console.error('Error al obtener la información de la película:', error));
 }
@@ -20,75 +19,50 @@ function mostrarPelicula(pelicula) {
   const mainContent = document.getElementById('main-content');
 
   mainContent.innerHTML = `
-<div class="movie">
-  <!-- Banner -->
-  <div class="movie__banner" style="background-image: url('../img/banners/${pelicula.imagenBannerUrl}')">
-    <div class="movie__banner-overlay"></div>
-  </div>
-
-  <!-- Detalles -->
-  <section class="movie__details">
-    <!-- Póster -->
-    <div class="movie__poster">
-      <img src="../img/img_normales/${pelicula.imagenPequeniaUrl}" alt="${pelicula.nombre}" class="movie__poster-img">
-    </div>
-    <!-- Información -->
-    <div class="movie__info">
-      <div class="movie__info__tittle__rating">
-        <h1 class="movie__info__tittle__rating__title">${pelicula.nombre}</h1>
-        <div class="movie__info__tittle__rating__rating">
-          <span class="rating-icon">⭐</span>
-          <span class="movie__info__rating-score">${pelicula.valoracion}</span>
+    <div class="movie__banner" style="background-image: url('../img/banners/${pelicula.imagenBannerUrl}')">
+      <div class="movie__banner-overlay"></div>
+      <div class="movie__content">
+        <div class="movie__poster">
+          <img src="../img/img_normales/${pelicula.imagenPequeniaUrl}" alt="${pelicula.nombre}">
+        </div>
+        <div class="movie__info">
+          <h1>${pelicula.nombre}</h1>
+          <div class="rating">
+            <span class="rating-icon">⭐</span>
+            <span>${pelicula.valoracion}</span>
+          </div>
+          <p><strong>Duración:</strong> ${pelicula.duracion} minutos</p>
+          <p class="description"><strong>Descripción:</strong> ${pelicula.descripcion}</p>
+          <button class="sessions-button" onclick="toggleSesiones()">Sesiones Disponibles</button>
+          <div class="sessions-container hidden"></div>
         </div>
       </div>
-      <h2 class="movie__info__overview-title">Duración:</h2>
-      <p class="movie__info__overview">${pelicula.duracion} minutos</p>
-      <h2 class="movie__info__overview-title">Descripción:</h2>
-      <p class="movie__info__overview">${pelicula.descripcion}</p>
     </div>
-    <div class="sesiones__comprar">
-      <button class="movie__info__ticket-btn">Buy Tickets</button>
-    </div>
-  </section>
-</div>
   `;
 }
 
-function mostrarSesiones(sesiones) {
-  const mainContent = document.getElementById('main-content');
+function setupMostrarSesiones(sesiones) {
+  const container = document.querySelector('.sessions-container');
 
-  // Crear un nuevo div para las sesiones
-  const sesionesDiv = document.createElement('div');
-  sesionesDiv.className = 'sesiones';
-
-  // Agregar título
-  const sesionesTitulo = document.createElement('h2');
-  sesionesTitulo.textContent = 'Sesiones disponibles:';
-  sesionesDiv.appendChild(sesionesTitulo);
-
-  // Crear lista de sesiones
   sesiones.forEach(sesion => {
-    const sesionCard = document.createElement('div');
-    sesionCard.className = 'sesion-card';
-
-    sesionCard.innerHTML = `
-
-      <button class="movie__info__ticket-btn"onclick="irAComprar(${sesion.id})">
+    const card = document.createElement('div');
+    card.className = 'session-card';
+    card.innerHTML = `
       <p><strong>Fecha Inicio:</strong> ${new Date(sesion.fechaInicio).toLocaleString()}</p>
-      </button>
+      <button onclick="irAComprar(${sesion.id})">Comprar</button>
     `;
-
-    sesionesDiv.appendChild(sesionCard);
+    container.appendChild(card);
   });
-
-  // Añadir el div de sesiones al mainContent
-  mainContent.appendChild(sesionesDiv);
 }
 
-// Función para manejar la selección de una sesión
+function toggleSesiones() {
+  const container = document.querySelector('.sessions-container');
+  container.classList.toggle('hidden');
+}
+
 function irAComprar(idSesion) {
   localStorage.setItem('idSesion', idSesion);
-  window.location.href = 'reservaasiento.html'; // Cambiar según tu ruta
+  window.location.href = 'reservaasiento.html';
 }
 
 document.addEventListener('DOMContentLoaded', () => {
