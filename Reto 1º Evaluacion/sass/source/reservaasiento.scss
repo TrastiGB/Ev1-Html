@@ -3,10 +3,11 @@ $verde: #28a745;
 $azul: #007bff;
 $rojo: #dc3545;
 $gris: #f8f9fa;
+$primary-color: #202020; // Fondo oscuro del código anterior
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  background-color: $primary-color; // Usando el fondo oscuro del código anterior
   margin: 0;
   padding: 0;
 }
@@ -51,7 +52,7 @@ body {
   margin-top: 20px;
   text-align: center;
   padding: 10px;
-  background-color: $gris;
+  background-color: $primary-color;
   border: 1px solid #ccc;
   border-radius: 5px;
 
