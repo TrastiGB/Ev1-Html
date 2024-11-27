@@ -2,6 +2,7 @@
 $primary-color: #202020;
 $secondary-color: #ffffff;
 $accent-color: #007bff;
+$rating-color: #f8b400;
 $font-family: 'Arial, sans-serif';
 
 /* Global Styles */
@@ -18,87 +19,114 @@ a {
 }
 
 .movie {
-  margin-top: 80px;
-
   &__banner {
     position: relative;
+    width: 100%;
+    height: 100vh; /* Usamos toda la altura de la pantalla */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
 
-    &-img {
+    &-overlay {
+      position: absolute;
       width: 100%;
-      height: auto;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9));
     }
   }
 
-  &__details {
+  &__content {
+    position: absolute;
+    z-index: 2;
+    color: $secondary-color;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 16px;
+    flex-direction: row;
+    gap: 30px;
+    padding: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
 
-    @media (min-width: 768px) {
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 32px;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      margin-left: 5%;
+      margin-right: 5%;
     }
   }
 
   &__poster {
     flex: 1;
-
-    &-img {
-      max-width: 100%;
+    max-width: 300px;
+    img {
+      width: 100%;
       border-radius: 10px;
-
-      @media (min-width: 768px) {
-        max-width: 300px;
-      }
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
     }
   }
 
   &__info {
     flex: 2;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
 
-    @media (min-width: 768px) {
-      text-align: left;
+    h1 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 10px;
     }
 
-    &__title {
-      font-size: 32px;
-      margin: 16px 0;
-    }
-
-    &__rating {
+    .rating {
       display: flex;
       align-items: center;
-      gap: 8px;
       font-size: 24px;
-      margin: 16px 0;
+      margin-bottom: 15px;
+
+      .rating-icon {
+        color: $rating-color;
+        font-size: 28px;
+        margin-right: 5px;
+      }
     }
 
-    &__ticket-btn {
+    .description {
+      margin-top: 20px;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .sessions-button {
+      margin-top: 20px;
       background-color: $accent-color;
       color: $secondary-color;
-      border: none;
-      padding: 8px 16px;
+      padding: 10px 15px;
       font-size: 16px;
+      border: none;
       border-radius: 5px;
       cursor: pointer;
-      margin-bottom: 16px;
+      transition: background-color 0.3s ease;
 
       &:hover {
         background-color: darken($accent-color, 10%);
       }
     }
 
-    &__overview-title {
-      font-size: 24px;
-      margin: 16px 0;
+    .sessions-container {
+      display: none; /* Por defecto estará oculto */
+      margin-top: 20px;
+      padding: 10px;
+      background-color: lighten($primary-color, 5%);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-
-    &__overview {
-      font-size: 16px;
-      line-height: 150%;
+    
+    .sessions-container.hidden {
+      display: none;
+    }
+    
+    .sessions-container:not(.hidden) {
+      display: block; /* Se muestra cuando no tiene la clase "hidden" */
     }
   }
 }

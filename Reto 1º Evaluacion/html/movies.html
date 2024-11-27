@@ -37,14 +37,15 @@
 
     <main class="main-content">
         <!-- Categorías -->
-        <aside class="categories">
+        <div class="categories">
             <div class="categories__search">
-                <input type="text" id="searchInput" placeholder="Buscar..." class="categories__input">
                 <button id="searchButton" class="categories__button">
                     <img src="../img/icons/lupa.png" alt="Buscar">
                 </button>
+                <input type="text" id="searchInput" placeholder="Buscar..." class="categories__input">
             </div>
             <ul class="categories__list">
+                <li><button id="all" class="categories__item">All</button></li>
                 <li><button id="accion" class="categories__item">Acción</button></li>
                 <li><button id="aventura" class="categories__item">Aventura</button></li>
                 <li><button id="ciencia-ficcion" class="categories__item">Ciencia Ficción</button></li>
@@ -64,7 +65,7 @@
                 <li><button id="misterio" class="categories__item">Misterio</button></li>
                 <li><button id="gore" class="categories__item">Gore</button></li>
             </ul>
-        </aside>
+        </div>
 
         <!-- Sección de películas -->
         <section class="movies">
