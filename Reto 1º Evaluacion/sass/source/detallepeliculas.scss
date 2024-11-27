@@ -130,3 +130,39 @@ a {
     }
   }
 }
+
+/* Versiones para pantallas más grandes */
+@media (min-width: 768px) {
+  .movie {
+    &__info {
+      &__title {
+        font-size: 48px;
+        /* Aumenta aún más el tamaño en pantallas grandes */
+      }
+
+      &__rating {
+        font-size: 32px;
+        gap: 16px;
+        /* Espaciado adicional entre íconos y texto */
+      }
+
+      &__ticket-btn {
+        font-size: 20px;
+        /* Botón más destacado */
+        padding: 18px 30px;
+      }
+
+      &__overview-title {
+        font-size: 36px;
+        /* Más grande en pantallas grandes */
+      }
+
+      &__overview {
+        font-size: 22px;
+        /* Texto principal más grande */
+        line-height: 2;
+        /* Más espacio entre líneas */
+      }
+    }
+  }
+}
