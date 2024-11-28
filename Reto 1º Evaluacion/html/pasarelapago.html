@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selección de Asientos</title>
+    <link rel="stylesheet" href="../sass/build/reset.css">
+    <link rel="stylesheet" href="../sass/build/header.css">
+    <link rel="stylesheet" href="../sass/build/footer.css">
+    <link rel="stylesheet" href="../sass/build/pasarelapago.css">
+    <script src="../js/pasarelapago.js"></script>
+</head>
+
+<body>
+    <!-- Encabezado -->
+    <header class="header">
+        <div class="header__logo">
+            <img src="../img/icons/LogoButacoo.png" alt="Butacoo Logo">
+        </div>
+        <nav class="header__nav">
+            <ul class="header__nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+            </ul>
+        </nav>
+        <div class="header__icons">
+            <button class="icon">
+                <img src="../img/icons/LogIn.png" alt="User Icon">
+            </button>
+            <button class="icon">
+                <img src="../img/icons/LogOut.png" alt="Settings Icon">
+            </button>
+        </div>
+    </header>
+    
+    <main>
+        <div class = "resumen-compra">
+
+        </div> 
+            <div class="pago">
+                <h2>Información de Pago</h2>
+                <form id="paymentForm">
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" placeholder="Nombre completo" required>
+                </div>
+                <div class="form-group">
+                    <label for="cardNumber">Número de tarjeta</label>
+                    <input type="number" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-column">
+                    <label for="expiryDate">Fecha de expiración</label>
+                    <input type="text" id="expiryDate" placeholder="MM/AA" required>
+                    </div>
+                    <div class="form-column">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" placeholder="123" required>
+                    </div>
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">Acepto los términos y condiciones</label>
+                </div>
+                <button type="submit" class="pagar-btn" id="payButton">Pagar</button>
+                </form>
+            </div>   
+    </main>
+
+    <footer class="footer">
+        <div class="footer__credits">
+            <div class="footer__credits__logo">
+                <img src="../img/icons/LogoButacoo.png" alt="Butacoo Logo" />
+                <p>Butacoo66</p>
+            </div>
+            <div class="footer__credits__copyright">
+                <p>Designed By Trasti and Daniel</p>
+            </div>
+        </div>
+        <div class="footer__navs">
+            <div class="footer__box1"><p>Información de Contacto</p></div>
+            <div class="footer__box2"><p>Información de Contacto</p></div>
+            <div class="footer__box3"><p>Información de Contacto</p></div>
+            <div class="footer__box4"><p>Información de Contacto</p></div>
+            <div class="footer__box5"><p>Información de Contacto</p></div>
+            <div class="footer__box6"><p>Información de Contacto</p></div>
+            <div class="footer__box7"><p>Información de Contacto</p></div>
+            <div class="footer__box8"><p>Información de Contacto</p></div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     //return response.json(); // Si esperas una respuesta en JSON
                 })
                 .then(data => {
-                    window.location.reload();
+                    window.location.href = 'pasarelapago.html';
                 })
                 .catch(error => console.error("Error al realizar la compra:", error));
         } else {
