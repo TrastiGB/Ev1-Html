@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         `;
 
-        // Construir las miniaturas
+        // Construir las imagenes pequeñas
         let thumbnailsHTML = `
             <div class="carousel__thumbnails">
             <button class="carousel__arrow carousel__arrow--left" onclick="previousSlide()">&#10094;</button>`;
@@ -56,9 +56,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Función para mostrar el slide actual
     function showSlide(index) {
+        console.log(aPeliculas[index].imagenBannerUrl)
         currentSlide = index;
         const mainImage = document.querySelector('.carousel__image');
-        mainImage.src = aPeliculas[currentSlide].ImagenBannerUrl; // Actualizar la imagen principal
+        mainImage.src = `../img/banners/${aPeliculas[currentSlide].imagenBannerUrl}`; // Actualizar la imagen principal
         updateActiveThumbnail(); // Actualizar la miniatura activa
     }
 
