@@ -1,8 +1,24 @@
 body {
   font-family: Arial, sans-serif;
   background-color: #202020;
+  color: #ffffff;
   margin: 0;
   padding: 0;
+}
+
+.screen {
+  background-color: #d3d3d3;
+  color: #ffffff;
+  margin: 20px auto;
+  padding: 10px;
+  width: 80%;
+  font-weight: bold;
+  border-radius: 5px;
+}
+@media (min-width: 768px) {
+  .screen {
+    width: 50%;
+  }
 }
 
 .seating-container {
@@ -13,7 +29,7 @@ body {
 
 .seating-chart {
   display: grid;
-  grid-template-columns: repeat(5, 50px);
+  grid-template-columns: repeat(10, 50px);
   gap: 10px;
   margin-bottom: 20px;
 }
@@ -46,7 +62,7 @@ body {
   border-radius: 5px;
 }
 .summary #summary-list {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
   margin: 0;
 }
