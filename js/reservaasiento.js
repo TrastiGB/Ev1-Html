@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const idsAsientos = asientosSeleccionados.map(asiento => asiento.id);
         const asientosPosiciones = asientosSeleccionados.map(asiento => `F${asiento.fila}-C${asiento.columna}`);
 
-        fetch(`https://localhost:7103/Sesion/actualizarAsientos/${idSesion}`, {
+        fetch(`https://localhost:7103/Sesion/${idSesion}/actualizarAsientos`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

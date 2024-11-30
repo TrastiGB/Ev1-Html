@@ -1,7 +1,7 @@
 const idPelicula = localStorage.getItem('idPelicula');
 
 function fetchInfoPelicula() {
-  fetch(`https://localhost:7103/Sesion/sesionesPelicula/${idPelicula}`)
+  fetch(`https://localhost:7103/Sesion/Pelicula/${idPelicula}/Sesiones`)
     .then(response => {
       if (!response.ok) {
         throw new Error('Error al obtener los datos de la película');
