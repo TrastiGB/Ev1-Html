@@ -1,4 +1,17 @@
-// Función para realizar la llamada a la API y obtener las películas
+function fetchCategorias() {
+    fetch('https://localhost:7103/Categoria')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al obtener las categorías');
+            }
+            return response.json();
+        })
+        .then(data => {
+            generarBotonesDeCategorias(data);
+        })
+        .catch(error => console.error('Error al obtener categorías:', error));
+}
+
 function fetchPeliculas() {
     fetch('https://localhost:7103/Pelicula')
         .then(response => {
@@ -9,14 +22,13 @@ function fetchPeliculas() {
         })
         .then(data => {
             mostrarPeliculas(data);
-            configurarBuscador(data); // Configurar el buscador con los datos obtenidos
+            configurarBuscador(data);
         })
         .catch(error => console.error('Error al obtener películas:', error));
 }
 
-// Función para realizar la llamada a la API y obtener las películas por categoría
-function fetchPeliculasPorCategoria(categoria) {
-    fetch(`https://localhost:7103/Pelicula/categoria/${categoria}`)
+function fetchPeliculasPorCategoria(categoriaId) {
+    fetch(`https://localhost:7103/Pelicula/categoria/${categoriaId}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error al obtener los datos de la API');
@@ -24,12 +36,11 @@ function fetchPeliculasPorCategoria(categoria) {
             return response.json();
         })
         .then(data => {
-            mostrarPeliculas(data); // Muestra solo las películas de la categoría seleccionada
+            mostrarPeliculas(data);
         })
         .catch(error => console.error('Error al obtener películas por categoría:', error));
 }
 
-// Función para generar y mostrar las cartas de las películas
 function mostrarPeliculas(peliculas) {
     console.log(peliculas);
     const moviesContainer = document.querySelector('.movies__container');
@@ -45,32 +56,47 @@ function mostrarPeliculas(peliculas) {
                 <button class="movie-card__button" onclick="verMasInformacion('${pelicula.id}')">Más Información</button>
             </div>
         `;
-        moviesContainer.innerHTML += peliculaHTML; // Añade la carta al contenedor
+        moviesContainer.innerHTML += peliculaHTML;
     });
 }
 
-// Función para configurar el filtro por categoría
+function generarBotonesDeCategorias(categorias) {
+    const categoriesList = document.querySelector('.categories__list');
+    categoriesList.innerHTML = '';
+
+    const allButton = document.createElement('li');
+    allButton.innerHTML = `<button id="0" class="categories__item">All</button>`;
+    categoriesList.appendChild(allButton);
+
+    categorias.forEach(categoria => {
+        const categoriaButton = document.createElement('li');
+        categoriaButton.innerHTML = `<button id="${categoria.id}" class="categories__item">${categoria.nombre}</button>`;
+        categoriesList.appendChild(categoriaButton);
+    });
+
+    configurarBotonesDeCategorias();
+}
+
 function configurarBotonesDeCategorias() {
     const botonesCategorias = document.querySelectorAll('.categories__item');
 
     botonesCategorias.forEach(boton => {
         boton.addEventListener('click', () => {
-            const categoria = boton.textContent.trim(); // Obtiene el texto del botón como categoría
-            if (categoria === "All") {
-                fetchPeliculas(); // Si se selecciona "All", muestra todas las películas
+            const categoriaId = boton.id;
+            if (categoriaId === "0") {
+                fetchPeliculas();
             } else {
-                fetchPeliculasPorCategoria(categoria); // Filtra por la categoría seleccionada
+                fetchPeliculasPorCategoria(categoriaId);
             }
         });
     });
 }
 
-// Función para filtrar y mostrar películas según el título ingresado
 function configurarBuscador(peliculas) {
     const searchInput = document.getElementById('searchInput');
 
     searchInput.addEventListener('input', () => {
-        const query = searchInput.value.toLowerCase().trim(); // Convertir a minúsculas y eliminar espacios
+        const query = searchInput.value.toLowerCase().trim();
         const peliculasFiltradas = peliculas.filter(pelicula =>
             pelicula.nombre.toLowerCase().includes(query)
         );
@@ -78,13 +104,12 @@ function configurarBuscador(peliculas) {
     });
 }
 
-// Función para redirigir a la página de más información
 function verMasInformacion(movieId) {
     localStorage.setItem('idPelicula', movieId);
     window.location.href = `detallepelicula.html?id=${movieId}`;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetchPeliculas(); // Carga todas las películas al inicio
-    configurarBotonesDeCategorias(); // Configura los eventos de los botones de categoría
+    fetchCategorias();
+    fetchPeliculas();
 });
