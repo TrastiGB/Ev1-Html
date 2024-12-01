@@ -28,10 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // Construir la imagen principal con la primera película
         let mainImageHTML = `
             <div class="carousel__main">
-                <div class="carousel__movie__info">
-                    <h1 class="carousel__movie__title">${peliculas[0].nombre}</h1>
-                    <div><button class="movie__ticket-btn">Buy Tickets</button></div>
-                </div>
                 <img src="../img/banners/${peliculas[0].imagenBannerUrl}" alt="${peliculas[0].nombre}" class="carousel__image">
             </div>
         `;
