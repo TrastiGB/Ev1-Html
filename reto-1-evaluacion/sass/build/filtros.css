@@ -47,7 +47,7 @@ a {
   width: 90%;
 }
 .categories__search input::placeholder {
-  color: white;
+  color: #d1d1d1;
 }
 .categories__search input:focus {
   outline: none;
@@ -69,8 +69,9 @@ a {
   cursor: pointer;
 }
 .categories__item:hover {
-  background-color: #5e5e5e;
+  background-color: #555;
 }
+
 .movies {
   display: flex;
   justify-content: center;
@@ -127,12 +128,12 @@ a {
   font-size: 14px;
   border: none;
   border-radius: 10px;
-  color: #E7EAEF;
+  color: black;
   cursor: pointer;
   margin-top: auto;
 }
 .movie-card__button:hover {
-  background-color: #ccab00;
+  background-color: #E6C100;
 }
 
 @media (min-width: 768px) {

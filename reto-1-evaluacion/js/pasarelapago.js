@@ -66,13 +66,53 @@ function cargarFormularioPago() {
             </div>
             <div class="pago-container__actions">
                 <button type="button" id="submitButton" class="pagar-btn">Realizar Pago</button>
+                <button type="button" id="cancelButton" class="cancelar-btn">Cancelar Pago</button>
             </div>
         </div>
     `;
 
     mainContainer.innerHTML += formularioHTML;
 
+    // Añadimos los eventos para los botones
     document.getElementById("submitButton").addEventListener("click", realizarPago);
+    document.getElementById("cancelButton").addEventListener("click", cancelarPago);
+}
+
+function cancelarPago() {
+    const compraData = localStorage.getItem("compra");
+    if (!compraData) {
+        console.error("No se encontró la compra en localStorage.");
+        alert("No se puede cancelar porque no hay datos de la compra.");
+        return;
+    }
+
+    const compra = JSON.parse(compraData);
+    const idSesion = compra.sesionReservada.id;
+    const idsAsientos = compra.asientosIds;
+
+    console.log("Enviando IDs de asientos para liberar:", idsAsientos);
+
+    fetch(`https://localhost:7103/Sesion/${idSesion}/liberarAsientos`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(idsAsientos)
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Error al liberar los asientos: ${response.statusText}`);
+            }
+            console.log("Asientos liberados correctamente.");
+        })
+        .then(() => {
+            localStorage.removeItem("compra"); 
+            window.location.href = "reservaasiento.html"; 
+        })
+        .catch(error => {
+            console.error("Error durante el proceso:", error);
+            alert("Hubo un problema al cancelar el pago. Inténtelo nuevamente.");
+        });
 }
 
 function realizarPago() {
@@ -102,17 +142,26 @@ function realizarPago() {
         body: JSON.stringify(compraPost)
     })
         .then(response => {
+            // Verificar si la respuesta es exitosa
             if (!response.ok) {
-                throw new Error(`Error en el POST: ${response.statusText}`);
+                return response.text().then(errorText => {
+                    throw new Error(`Error al realizar la compra: ${errorText}`);
+                });
             }
-            return response.json();
+
+            // Procesar respuesta si tiene contenido
+            const contentType = response.headers.get("Content-Type");
+            return contentType && contentType.includes("application/json") ? response.json() : null;
         })
         .then(data => {
-            localStorage.setItem("idCompra", data.id);
-            window.location.href = "ticket.html";
+            if (data) {
+                localStorage.setItem("idCompra", data.id);
+            }
+            window.location.href = "ticket.html"; // Redirigir a la página del ticket
         })
         .catch(error => {
-            alert("Hubo un problema al procesar el pago. Inténtelo nuevamente.");
+            console.error("Error durante el proceso de compra:", error);
+            alert("Hubo un problema al realizar la compra. Inténtelo nuevamente.");
         });
 }
 
