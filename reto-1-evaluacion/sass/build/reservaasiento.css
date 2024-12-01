@@ -1,9 +1,28 @@
+@charset "UTF-8";
 body {
   font-family: Arial, sans-serif;
   background-color: #202020;
   color: #ffffff;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Hace que la página ocupe toda la altura de la ventana */
+}
+
+main {
+  flex: 1; /* Empuja el footer al final */
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+}
+
+.seating-summary-container {
+  display: flex; /* Coloca los asientos y el resumen uno al lado del otro */
+  justify-content: flex-start; /* Ajusta los asientos y resumen hacia la derecha */
+  gap: 50px; /* Más espacio entre los elementos */
+  margin: 0 auto;
+  max-width: 1200px; /* Define el ancho máximo del contenedor */
+  padding-top: 30px; /* Espaciado superior */
 }
 
 .screen {
@@ -11,30 +30,25 @@ body {
   color: #ffffff;
   margin: 20px auto;
   padding: 10px;
-  width: 80%;
+  width: 100%;
+  text-align: center;
   font-weight: bold;
   border-radius: 5px;
 }
-@media (min-width: 768px) {
-  .screen {
-    width: 50%;
-  }
-}
 
 .seating-container {
+  flex: 2; /* Los asientos ocupan más espacio */
   display: flex;
-  justify-content: center;
+  justify-content: flex-start; /* Mueve los asientos más a la derecha */
   margin-top: 30px;
 }
-
-.seating-chart {
+.seating-container .seating-chart {
   display: grid;
-  grid-template-columns: repeat(10, 50px);
+  grid-template-columns: repeat(10, 50px); /* Ajusta según la cantidad de columnas */
   gap: 10px;
   margin-bottom: 20px;
 }
-
-.seat {
+.seating-container .seat {
   width: 50px;
   height: 50px;
   background-color: #28a745;
@@ -42,49 +56,75 @@ body {
   border: 2px solid #000;
   border-radius: 5px;
 }
-.seat.ocupado {
+.seating-container .seat.ocupado {
   background-color: #dc3545;
   cursor: not-allowed;
 }
-.seat.selected {
+.seating-container .seat.selected {
   background-color: #007bff;
 }
-.seat.comprado {
+.seating-container .seat.comprado {
   background-color: #dc3545;
 }
 
 .summary {
-  margin-top: 20px;
-  text-align: center;
-  padding: 10px;
+  flex: 1; /* El resumen ocupa menos espacio */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra los elementos horizontalmente */
+  margin-top: 0; /* Alineado con los asientos */
+  padding: 20px;
   background-color: #202020;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  color: #ffffff;
+  border-radius: 10px;
 }
-.summary #summary-list {
+.summary h2 {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 100%;
+}
+.summary img {
+  width: 100%; /* Ajusta la imagen al ancho del contenedor */
+  max-width: 150px; /* Imagen más pequeña */
+  height: auto; /* Mantén la proporción de la imagen */
+  border-radius: 5px;
+  margin-bottom: 10px; /* Espaciado entre la imagen y el texto */
+  align-self: center; /* Centra la imagen dentro del resumen */
+}
+.summary ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  width: 100%;
+  text-align: center; /* Centra el texto en el resumen */
 }
-.summary #summary-list li {
-  margin: 5px 0;
+.summary ul li {
   font-size: 16px;
+  margin-bottom: 5px;
 }
-.summary #summary-list li:last-child {
+.summary ul li:last-child {
   font-weight: bold;
-  border-top: 1px solid #000;
   margin-top: 10px;
   padding-top: 10px;
+  border-top: 1px solid #fff;
+  display: inline-block; /* Hacer la línea igual de larga que el texto */
+  width: fit-content; /* Ajustar la línea al contenido */
 }
 .summary button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
+  width: 150px; /* Botón ajustado al ancho de la imagen */
+  padding: 8px; /* Reducir el padding */
+  font-size: 14px; /* Letra más pequeña */
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+.summary button:hover {
+  background-color: #0056b3;
 }
 .summary button:disabled {
   background-color: #cccccc;

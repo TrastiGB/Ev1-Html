@@ -56,7 +56,6 @@ a {
     }
 }
 
-
 /* Carousel Styles - Mobile First */
 
 .carousel {
@@ -104,14 +103,14 @@ a {
                 padding: 10px 20px;
                 font-size: 1rem;
                 background-color: $primary-color;
-                color: white;
+                color: black;
                 border: none;
                 border-radius: 5px;
                 cursor: pointer;
                 transition: background-color 0.3s ease;
 
                 &:hover {
-                    background-color: darken($primary-color, 10%);
+                    background-color: #d9d9d9; // Reemplazo de darken($primary-color, 10%)
                 }
             }
         }
@@ -143,7 +142,7 @@ a {
             }
 
             &:hover {
-                background-color: rgba(0, 0, 0, 0.8);
+                background-color: rgba(0, 0, 0, 0.8); // Sin usar lighten o darken
             }
         }
         .carousel__thumbnail {
@@ -231,8 +230,6 @@ a {
         transform: translateY(0);
     }
 }
-
-
 
 /* Media Queries for Desktop */
 @media (min-width: 768px) {

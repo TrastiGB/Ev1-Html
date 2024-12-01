@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let asientosSeleccionados = [];
     let precioEntrada = 0;
     let TotalPrecio = 0;
-    let Sala;
     let Sesion;
 
     const urlApi = `https://localhost:7103/Sesion/${idSesion}`;
@@ -20,11 +19,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 return response.json();
             })
             .then(sesion => {
-                console.log(sesion.sala);
-                
                 Sesion = sesion;
                 const asientos = sesion.listaAsientos;
                 precioEntrada = sesion.precio;
+
+                // Llamamos a la función para generar la imagen y resumen dinámicamente
+                actualizarResumenEstatico(sesion);
                 generarAsientos(asientos, sesion.sala.Capacidad);
             })
             .catch(error => console.error("Error al cargar los asientos:", error));
@@ -103,6 +103,20 @@ document.addEventListener("DOMContentLoaded", function () {
         listaResumen.appendChild(totalItem);
     }
 
+    function actualizarResumenEstatico(sesion) {
+        const resumenContainer = document.querySelector(".summary");
+
+        // Crear y agregar imagen
+        const imagenPelicula = document.createElement("img");
+        imagenPelicula.src = `../img/img_normales/${sesion.pelicula.imagenPequeniaUrl}`; // URL de la imagen desde la API
+        imagenPelicula.alt = `Imagen de ${sesion.pelicula.nombre}`;
+        imagenPelicula.style.width = "100%";
+        imagenPelicula.style.borderRadius = "5px";
+        imagenPelicula.style.marginBottom = "20px";
+
+        resumenContainer.insertBefore(imagenPelicula, listaResumen);
+    }
+
     function actualizarBotonCompra() {
         botonComprar.disabled = asientosSeleccionados.length === 0;
     }
@@ -123,20 +137,20 @@ document.addEventListener("DOMContentLoaded", function () {
                     throw new Error('Error al actualizar los asientos en la API');
                 }
             })
-            .then(sesion => {
+            .then(() => {
                 const totalEntradas = asientosSeleccionados.length;
                 const fechaCompra = new Date().toISOString();
 
                 const compra = {
                     sesionReservada: Sesion,
                     asientosPosiciones: asientosPosiciones,
+                    asientosIds: idsAsientos, // SE AÑADEN LOS IDs DE LOS ASIENTOS SELECCIONADOS
                     numEntradas: totalEntradas,
-                    precio: TotalPrecio, // Usar el precio total calculado globalmente
+                    precio: TotalPrecio,
                     fecha: fechaCompra
                 };
 
                 localStorage.setItem("compra", JSON.stringify(compra));
-
                 window.location.href = "pasarelapago.html";
             })
             .catch(error => console.error("Error al realizar la compra:", error));

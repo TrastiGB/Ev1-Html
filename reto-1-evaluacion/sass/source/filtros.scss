@@ -3,14 +3,13 @@ $primary-color: #fff;
 $secondary-color: #000;
 $text-color: #E7EAEF;
 $categories-bg-color: #333;
-$categories-hover-color: lighten($categories-bg-color, 10%);
+$categories-hover-color: #4d4d4d; // Ajuste manual del color 10% más claro
 $button-bg-color: #444;
-$button-hover-color: lighten($button-bg-color, 10%);
+$button-hover-color: #555; // Ajuste manual del color 10% más claro
 $card-bg-color: #444;
 $card-button-bg: #FFD600;
-$card-button-hover: darken($card-button-bg, 10%);
+$card-button-hover: #E6C100; // Ajuste manual del color 10% más oscuro
 $card-border-radius: 10px;
-
 
 // General
 body {
@@ -25,10 +24,12 @@ a {
     text-decoration: none;
     color: inherit;
 }
-.main-content{
+
+.main-content {
     display: flex;
     flex-direction: column;
 }
+
 // Categories (barra lateral)
 .categories {
     width: 100%;
@@ -36,7 +37,7 @@ a {
     background-color: $categories-bg-color;
 
     &__search {
-        background-color: lighten($categories-bg-color, 10%);
+        background-color: $categories-hover-color;
         padding: 10px;
         border-radius: 5px;
         max-width: 30%;
@@ -63,14 +64,13 @@ a {
             width: 90%;
 
             &::placeholder {
-                color: lighten($text-color, 20%);
+                color: #d1d1d1; // Ajuste manual del color del placeholder (ligeramente más claro que $text-color)
             }
 
             &:focus {
                 outline: none;
             }
         }
-
     }
 
     &__list {
@@ -94,12 +94,6 @@ a {
             background-color: $button-hover-color;
         }
     }
-
-    // Responsive para desktop
-    //@media (min-width: 768px) {
-    //    &__list {
-    //    }
-    //}
 }
 
 // Movies Section
@@ -109,7 +103,6 @@ a {
     padding: 20px;
     width: 100%;
     min-height: 650px;
-
 
     &__container {
         display: flex;
@@ -136,7 +129,7 @@ a {
     flex-direction: column;
     text-align: center;
 
-    &__imagen__estandar{
+    &__imagen__estandar {
         width: 180px; // Ocupa todo el ancho de la carta
         height: 65%; // Imagen ocupa el 60% de la altura total
         object-fit: cover;
@@ -164,7 +157,7 @@ a {
         font-size: 14px;
         border: none;
         border-radius: $card-border-radius;
-        color: $text-color;
+        color: black;
         cursor: pointer;
         margin-top: auto; // Empuja el botón al final de la carta
 

@@ -89,14 +89,14 @@ a {
   padding: 10px 20px;
   font-size: 1rem;
   background-color: #fff;
-  color: white;
+  color: black;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 .carousel__main .carousel__movie__info .movie__ticket-btn:hover {
-  background-color: #e6e6e6;
+  background-color: rgb(229.5, 229.5, 229.5);
 }
 .carousel__thumbnails {
   display: flex;

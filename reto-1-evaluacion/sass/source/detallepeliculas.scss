@@ -5,6 +5,10 @@ $accent-color: #007bff;
 $rating-color: #f8b400;
 $font-family: 'Arial, sans-serif';
 
+/* Colores ajustados manualmente */
+$accent-color-darkened: #0061cc;  // Un tono más oscuro de azul
+$primary-color-lightened: #383838; // Un tono más claro de gris
+
 /* Global Styles */
 body {
   margin: 0;
@@ -100,31 +104,36 @@ a {
       margin-top: 20px;
       background-color: $accent-color;
       color: $secondary-color;
-      padding: 10px 15px;
+      padding: 12px 20px;
       font-size: 16px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.2s ease;
 
       &:hover {
-        background-color: darken($accent-color, 10%);
+        background-color: $accent-color-darkened; // Usamos el color oscuro
+        transform: scale(1.05);
+      }
+
+      &:focus {
+        outline: none;
       }
     }
 
     .sessions-container {
       display: none; /* Por defecto estará oculto */
       margin-top: 20px;
-      padding: 10px;
-      background-color: lighten($primary-color, 5%);
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: 15px;
+      background-color: #444; /* Fondo oscuro para las sesiones */
+      border-radius: 12px; /* Bordes redondeados */
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra suave */
     }
-    
+
     .sessions-container.hidden {
       display: none;
     }
-    
+
     .sessions-container:not(.hidden) {
       display: block; /* Se muestra cuando no tiene la clase "hidden" */
     }
