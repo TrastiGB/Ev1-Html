@@ -1,3 +1,6 @@
+/* global fetch */
+/* global localStorage */
+
 function cargarResumenCompraFinal() {
     const resumenContainer = document.querySelector(".resumen-compra");
     const idCompra = localStorage.getItem("idCompra"); // Obtener el ID de la compra desde localStorage
@@ -7,7 +10,8 @@ function cargarResumenCompraFinal() {
         return;
     }
 
-    fetch(`https://localhost:7103/Compra/${idCompra}`)
+    // Cambié la URL de la API a http://localhost:7103/
+    fetch(`http://localhost:7103/Compra/${idCompra}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Error al cargar el resumen de la compra: ${response.statusText}`);
@@ -29,9 +33,9 @@ function cargarResumenCompraFinal() {
 
             resumenContainer.innerHTML = resumenHTML;
 
-            // Añadir evento al botón para redirigir a home.html
+            // Cambié la redirección de home.html a /home
             document.getElementById("volverHomeBtn").addEventListener("click", () => {
-                window.location.href = "home.html";
+                window.location.href = "/home"; // Ruta corregida para el servidor Express
             });
         })
         .catch(error => {

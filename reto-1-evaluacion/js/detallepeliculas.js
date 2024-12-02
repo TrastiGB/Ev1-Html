@@ -1,7 +1,10 @@
+/* global fetch */
+/* global localStorage */
+
 const idPelicula = localStorage.getItem('idPelicula');
 
 function fetchInfoPelicula() {
-  fetch(`https://localhost:7103/Sesion/Pelicula/${idPelicula}/Sesiones`)
+  fetch(`http://localhost:7103/Sesion/Pelicula/${idPelicula}/Sesiones`)  // Cambié la URL para que use http://
     .then(response => {
       if (!response.ok) {
         throw new Error('Error al obtener los datos de la película');
@@ -19,11 +22,11 @@ function mostrarPelicula(pelicula) {
   const mainContent = document.getElementById('main-content');
 
   mainContent.innerHTML = `
-    <div class="movie__banner" style="background-image: url('../img/banners/${pelicula.imagenBannerUrl}')">
+    <div class="movie__banner" style="background-image: url('/images/banners/${pelicula.imagenBannerUrl}')"> <!-- Ruta corregida a /images -->
       <div class="movie__banner-overlay"></div>
       <div class="movie__content">
         <div class="movie__poster">
-          <img src="../img/img_normales/${pelicula.imagenPequeniaUrl}" alt="${pelicula.nombre}">
+          <img src="/images/img_normales/${pelicula.imagenPequeniaUrl}" alt="${pelicula.nombre}"> <!-- Ruta corregida a /images -->
         </div>
         <div class="movie__info">
           <h1>${pelicula.nombre}</h1>
@@ -62,7 +65,7 @@ function toggleSesiones() {
 
 function irAComprar(idSesion) {
   localStorage.setItem('idSesion', idSesion);
-  window.location.href = 'reservaasiento.html';
+  window.location.href = '/reservaasiento';  // Ruta corregida para redirigir a reservaasiento.html
 }
 
 document.addEventListener('DOMContentLoaded', () => {

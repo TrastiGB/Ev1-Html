@@ -1,3 +1,6 @@
+/* global fetch */
+/* global localStorage */
+
 document.addEventListener("DOMContentLoaded", function () {
     const tablaAsientos = document.querySelector(".seating-chart");
     const botonComprar = document.getElementById("comprarBtn");
@@ -8,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let TotalPrecio = 0;
     let Sesion;
 
-    const urlApi = `https://localhost:7103/Sesion/${idSesion}`;
+    const urlApi = `http://localhost:7103/Sesion/${idSesion}`;  // Cambié la URL a http://
 
     function cargarAsientos() {
         fetch(urlApi)
@@ -108,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Crear y agregar imagen
         const imagenPelicula = document.createElement("img");
-        imagenPelicula.src = `../img/img_normales/${sesion.pelicula.imagenPequeniaUrl}`; // URL de la imagen desde la API
+        imagenPelicula.src = `/images/img_normales/${sesion.pelicula.imagenPequeniaUrl}`;  // Corregí la URL a /images
         imagenPelicula.alt = `Imagen de ${sesion.pelicula.nombre}`;
         imagenPelicula.style.width = "100%";
         imagenPelicula.style.borderRadius = "5px";
@@ -125,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const idsAsientos = asientosSeleccionados.map(asiento => asiento.id);
         const asientosPosiciones = asientosSeleccionados.map(asiento => `F${asiento.fila}-C${asiento.columna}`);
 
-        fetch(`https://localhost:7103/Sesion/${idSesion}/actualizarAsientos`, {
+        fetch(`http://localhost:7103/Sesion/${idSesion}/actualizarAsientos`, {  // Cambié la URL a http://
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -151,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 };
 
                 localStorage.setItem("compra", JSON.stringify(compra));
-                window.location.href = "pasarelapago.html";
+                window.location.href = "/pasarelapago";  // Redirigido a /pasarelapago
             })
             .catch(error => console.error("Error al realizar la compra:", error));
     }

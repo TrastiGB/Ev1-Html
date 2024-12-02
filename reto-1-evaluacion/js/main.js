@@ -1,3 +1,6 @@
+/* global fetch */
+/* global localStorage */
+
 let aPeliculas = []; // Array global para las películas
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -5,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Función para obtener las películas desde la API
     function fetchPeliculas() {
-        fetch('https://localhost:7103/Pelicula/top5')
+        fetch('http://localhost:7103/Pelicula/top5')  // Cambié a http:// para que funcione en entorno local
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Error al obtener los datos de la API');
@@ -28,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Construir la imagen principal con la primera película
         let mainImageHTML = `
             <div class="carousel__main">
-                <img src="../img/banners/${peliculas[0].imagenBannerUrl}" alt="${peliculas[0].nombre}" class="carousel__image">
+                <img src="/images/banners/${peliculas[0].imagenBannerUrl}" alt="${peliculas[0].nombre}" class="carousel__image">
             </div>
         `;
 
@@ -38,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <button class="carousel__arrow carousel__arrow--left" onclick="previousSlide()">&#10094;</button>`;
         peliculas.forEach((pelicula, index) => {
             thumbnailsHTML += `
-            <img src=../img/banners/${pelicula.imagenBannerUrl} alt="${pelicula.nombre}" onclick="showSlide(${index})" class="carousel__thumbnail">
+            <img src="/images/banners/${pelicula.imagenBannerUrl}" alt="${pelicula.nombre}" onclick="showSlide(${index})" class="carousel__thumbnail">
             `;
         });
         thumbnailsHTML += `
@@ -55,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(aPeliculas[index].imagenBannerUrl)
         currentSlide = index;
         const mainImage = document.querySelector('.carousel__image');
-        mainImage.src = `../img/banners/${aPeliculas[currentSlide].imagenBannerUrl}`; // Actualizar la imagen principal
+        mainImage.src = `/images/banners/${aPeliculas[currentSlide].imagenBannerUrl}`; // Corregida la ruta a /images
         updateActiveThumbnail(); // Actualizar la miniatura activa
     }
 
@@ -87,11 +90,10 @@ document.addEventListener("DOMContentLoaded", function () {
     window.previousSlide = previousSlide;
     window.showSlide = showSlide;
 
-    //constantes necesarias para segundo
+    // Constantes necesarias para el segundo carrusel
 
     const infoThumbnails = document.querySelectorAll('.info-carousel__thumbnail');
     const texts = document.querySelectorAll('.info-carousel__text');
-
 
     function showInfo(category) {
         // Ocultar todos los textos
