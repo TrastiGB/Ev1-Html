@@ -64,10 +64,12 @@ function generarBotonesDeCategorias(categorias) {
     const categoriesList = document.querySelector('.categories__list');
     categoriesList.innerHTML = '';
 
+    // Crear botón para todas las categorías
     const allButton = document.createElement('li');
-    allButton.innerHTML = `<button id="0" class="categories__item">All</button>`;
+    allButton.innerHTML = `<button id="0" class="categories__item active">All</button>`;
     categoriesList.appendChild(allButton);
 
+    // Crear botones dinámicos para cada categoría
     categorias.forEach(categoria => {
         const categoriaButton = document.createElement('li');
         categoriaButton.innerHTML = `<button id="${categoria.id}" class="categories__item">${categoria.nombre}</button>`;
@@ -83,6 +85,12 @@ function configurarBotonesDeCategorias() {
     botonesCategorias.forEach(boton => {
         boton.addEventListener('click', () => {
             const categoriaId = boton.id;
+
+            // Resaltar botón activo
+            botonesCategorias.forEach(btn => btn.classList.remove('active'));
+            boton.classList.add('active');
+
+            // Cargar películas según categoría seleccionada
             if (categoriaId === "0") {
                 fetchPeliculas();
             } else {

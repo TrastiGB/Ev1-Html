@@ -1,10 +1,25 @@
 @charset "UTF-8";
 /* Variables */
+/* Header */
 /* Color de texto para el footer */
 /* Fondo negro semitransparente */
 /* Fondo del footer igual al de la página */
 /* Color de bordes del footer */
 /* Ancho máximo para elementos centrados */
+/* Footer */
+/* Cambiado a blanco */
+/* Main */
+/* Color de texto para el footer */
+/* Fondo negro semitransparente */
+/* Fondo del footer igual al de la página */
+/* Color de bordes del footer */
+/* Ancho máximo para elementos centrados */
+/* AboutUs */
+/* Movies */
+/* DetallePeliculas */
+/* PasarelaPago */
+/* ReservaAsiento */
+/* Ticket */
 /* Base */
 *,
 *::before,
@@ -16,7 +31,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  color: #E7EAEF;
+  color: #ffffff;
   background-color: #000;
 }
 
@@ -41,7 +56,7 @@ a {
 .main-content .carousel__titulo h1 {
   font-size: 32px;
   font-weight: bold;
-  color: #E7EAEF;
+  color: #ffffff;
   margin: 0;
 }
 
@@ -88,7 +103,7 @@ a {
   margin-left: 2%;
   padding: 10px 20px;
   font-size: 1rem;
-  background-color: #fff;
+  background-color: #202020;
   color: black;
   border: none;
   border-radius: 5px;
@@ -96,7 +111,7 @@ a {
   transition: background-color 0.3s ease;
 }
 .carousel__main .carousel__movie__info .movie__ticket-btn:hover {
-  background-color: rgb(229.5, 229.5, 229.5);
+  background-color: #d9d9d9;
 }
 .carousel__thumbnails {
   display: flex;
@@ -108,7 +123,7 @@ a {
   margin-top: 5%;
   transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
+  color: #202020;
   border: none;
   font-size: 32px;
   padding: 8px;
@@ -136,7 +151,7 @@ a {
 }
 .carousel__thumbnails .carousel__thumbnail:hover, .carousel__thumbnails .carousel__thumbnail.active {
   opacity: 1;
-  border: 2px solid #fff;
+  border: 2px solid #202020;
 }
 
 /* Carousel Info Styles - Mobile First */
@@ -178,7 +193,7 @@ a {
 .info-carousel__content .info-carousel__text {
   display: none;
   font-size: 16px;
-  color: #E7EAEF;
+  color: #ffffff;
   line-height: 24px;
 }
 .info-carousel__content .info-carousel__text.active {

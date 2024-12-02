@@ -1,6 +1,25 @@
 @charset "UTF-8";
 /* Variables */
+/* Header */
+/* Color de texto para el footer */
+/* Fondo negro semitransparente */
+/* Fondo del footer igual al de la página */
+/* Color de bordes del footer */
+/* Ancho máximo para elementos centrados */
+/* Footer */
 /* Cambiado a blanco */
+/* Main */
+/* Color de texto para el footer */
+/* Fondo negro semitransparente */
+/* Fondo del footer igual al de la página */
+/* Color de bordes del footer */
+/* Ancho máximo para elementos centrados */
+/* AboutUs */
+/* Movies */
+/* DetallePeliculas */
+/* PasarelaPago */
+/* ReservaAsiento */
+/* Ticket */
 .footer {
   display: grid;
   grid-template-columns: 30% 70%;
@@ -8,7 +27,7 @@
   width: 100%;
   height: 90px;
   background-color: #000;
-  color: #E7EAEF;
+  color: #ffffff;
   z-index: 1000;
   /* Sección creditos */
   /* Sección derecha */
@@ -18,7 +37,7 @@
   grid-area: credits;
   display: flex;
   align-items: center;
-  border: 1px solid #fff;
+  border: 1px solid #E7EAEF;
 }
 .footer__credits__logo {
   display: flex;
@@ -32,7 +51,7 @@
 }
 .footer__credits__logo p {
   font-weight: bold;
-  color: #fff;
+  color: #202020;
   margin: 0;
 }
 .footer__credits__copyright {
@@ -41,7 +60,7 @@
 .footer__credits__copyright p {
   font-style: italic;
   font-size: 16px;
-  color: #fff;
+  color: #202020;
   margin: 0;
 }
 .footer__navs {
@@ -51,8 +70,8 @@
   grid-template-rows: repeat(2, auto); /* 2 filas */
   gap: 0; /* Sin separación interna */
   flex: 2;
-  border: 1px solid #fff; /* Borde blanco */
-  background-color: #282828;
+  border: 1px solid #E7EAEF; /* Borde blanco */
+  background-color: #000;
   align-items: center;
   text-align: center;
 }
@@ -62,13 +81,13 @@
   justify-content: center;
   text-align: center;
   padding: 10px;
-  border: 1px solid #fff; /* Borde blanco para simular cajas */
+  border: 1px solid #E7EAEF; /* Borde blanco para simular cajas */
   background-color: #000; /* Fondo oscuro */
 }
 .footer__navs__item p {
   font-size: 16px;
   font-weight: bold;
-  color: #fff;
+  color: #202020;
   margin: 0;
 }
 @media (max-width: 768px) {

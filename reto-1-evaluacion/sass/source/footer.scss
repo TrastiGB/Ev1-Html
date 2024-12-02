@@ -1,9 +1,5 @@
 /* Variables */
-$primary-color: #fff;
-$secondary-color: #282828;
-$text-color: #E7EAEF;
-$footer-bg-color: #000;
-$border-color: #fff; /* Cambiado a blanco */
+@import 'variables.scss';
 
 .footer {
     display: grid;

@@ -1,16 +1,5 @@
 /* Variables */
-$primary-color: #fff;
-$secondary-color: #000;
-$text-color: #E7EAEF;
-/* Color de texto para el footer */
-$header-bg-color: rgba(0, 0, 0, 0.6);
-/* Fondo negro semitransparente */
-$footer-bg-color: #000;
-/* Fondo del footer igual al de la página */
-$border-color: #E7EAEF;
-/* Color de bordes del footer */
-$max-width: 1200px;
-/* Ancho máximo para elementos centrados */
+@import 'variables.scss';
 
 /* Base */
 *,

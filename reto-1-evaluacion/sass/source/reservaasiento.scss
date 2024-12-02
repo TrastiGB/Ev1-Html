@@ -1,14 +1,5 @@
-// Variables de colores
-$verde: #28a745;
-$azul: #007bff;
-$azul-hover: #0056b3; // Color manual para hover
-$rojo: #dc3545;
-$gris: #f8f9fa;
-$primary-color: #202020;
-$button-color: #d3d3d3;
-$text-color: #ffffff; // Blanco para contrastar en el fondo oscuro
-$gap-small: 10px;
-$gap-large: 20px;
+/* Variables */
+@import 'variables.scss';
 
 body {
   font-family: Arial, sans-serif;

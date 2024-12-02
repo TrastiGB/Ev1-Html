@@ -1,6 +1,25 @@
 @charset "UTF-8";
 /* Variables */
-/* Colores ajustados manualmente */
+/* Header */
+/* Color de texto para el footer */
+/* Fondo negro semitransparente */
+/* Fondo del footer igual al de la página */
+/* Color de bordes del footer */
+/* Ancho máximo para elementos centrados */
+/* Footer */
+/* Cambiado a blanco */
+/* Main */
+/* Color de texto para el footer */
+/* Fondo negro semitransparente */
+/* Fondo del footer igual al de la página */
+/* Color de bordes del footer */
+/* Ancho máximo para elementos centrados */
+/* AboutUs */
+/* Movies */
+/* DetallePeliculas */
+/* PasarelaPago */
+/* ReservaAsiento */
+/* Ticket */
 /* Global Styles */
 body {
   margin: 0;
@@ -30,17 +49,15 @@ a {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9));
 }
 .movie__content {
-  position: absolute;
   z-index: 2;
   color: #ffffff;
   display: flex;
   flex-direction: row;
   gap: 30px;
   padding: 20px;
-  margin-left: 10%;
-  margin-right: 10%;
   background: rgba(0, 0, 0, 0.7);
   border-radius: 10px;
+  margin-left: 15%;
 }
 @media (max-width: 768px) {
   .movie__content {
@@ -103,7 +120,9 @@ a {
   outline: none;
 }
 .movie__info .sessions-container {
-  display: none; /* Por defecto estará oculto */
+  display: grid; /* Cambia a grid para organización automática */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Define columnas dinámicas */
+  gap: 20px; /* Espaciado entre elementos */
   margin-top: 20px;
   padding: 15px;
   background-color: #444; /* Fondo oscuro para las sesiones */
@@ -111,10 +130,34 @@ a {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra suave */
 }
 .movie__info .sessions-container.hidden {
-  display: none;
+  display: none; /* Oculta el contenedor cuando tiene la clase hidden */
 }
-.movie__info .sessions-container:not(.hidden) {
-  display: block; /* Se muestra cuando no tiene la clase "hidden" */
+.movie__info .session-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra el contenido de cada tarjeta */
+  justify-content: space-between; /* Espaciado uniforme entre los elementos */
+  background-color: #555; /* Fondo individual de las tarjetas */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 10px; /* Espaciado interno */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
+  color: white;
+  font-size: 14px; /* Tamaño del texto */
+}
+.movie__info .session-card button {
+  margin-top: 5px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.movie__info .session-card button:hover {
+  background-color: #0061cc;
+  transform: scale(1.05);
 }
 
 /* Versiones para pantallas más grandes */
