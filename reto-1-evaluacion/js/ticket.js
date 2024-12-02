@@ -11,7 +11,7 @@ function cargarResumenCompraFinal() {
     }
 
     // Cambié la URL de la API a http://localhost:7103/
-    fetch(`http://localhost:7103/Compra/${idCompra}`)
+    fetch(`http://54.242.122.114:7103/Compra/${idCompra}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Error al cargar el resumen de la compra: ${response.statusText}`);

@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let TotalPrecio = 0;
     let Sesion;
 
-    const urlApi = `http://localhost:7103/Sesion/${idSesion}`;  // Cambié la URL a http://
+    const urlApi = `http://54.242.122.114:7103/Sesion/${idSesion}`;  // Cambié la URL a http://
 
     function cargarAsientos() {
         fetch(urlApi)
@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const idsAsientos = asientosSeleccionados.map(asiento => asiento.id);
         const asientosPosiciones = asientosSeleccionados.map(asiento => `F${asiento.fila}-C${asiento.columna}`);
 
-        fetch(`http://localhost:7103/Sesion/${idSesion}/actualizarAsientos`, {  // Cambié la URL a http://
+        fetch(`http://54.242.122.114:7103/Sesion/${idSesion}/actualizarAsientos`, {  // Cambié la URL a http://
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

@@ -4,7 +4,7 @@
 const idPelicula = localStorage.getItem('idPelicula');
 
 function fetchInfoPelicula() {
-  fetch(`http://localhost:7103/Sesion/Pelicula/${idPelicula}/Sesiones`)  // Cambié la URL para que use http://
+  fetch(`http://54.242.122.114:7103/Sesion/Pelicula/${idPelicula}/Sesiones`)  // Cambié la URL para que use http://
     .then(response => {
       if (!response.ok) {
         throw new Error('Error al obtener los datos de la película');

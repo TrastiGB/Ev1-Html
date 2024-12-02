@@ -6,9 +6,19 @@ let aPeliculas = []; // Array global para las películas
 document.addEventListener("DOMContentLoaded", function () {
     let currentSlide = 0;
 
+    // Mostrar por defecto la información de "Asientos"
+    const defaultCategory = 'Asientos';
+    const defaultThumbnail = document.querySelector(`.info-carousel__thumbnail[alt="${defaultCategory}"]`);
+    const defaultText = document.getElementById(`info-${defaultCategory}`);
+    
+    if (defaultThumbnail && defaultText) {
+        defaultThumbnail.classList.add('active');
+        defaultText.classList.add('active');
+    }
+
     // Función para obtener las películas desde la API
     function fetchPeliculas() {
-        fetch('http://localhost:7103/Pelicula/top5')  // Cambié a http:// para que funcione en entorno local
+        fetch('http://54.242.122.114:7103/Pelicula/top5')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Error al obtener los datos de la API');
@@ -16,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 return response.json();
             })
             .then(data => {
-                console.log('a')
+                console.log('a');
                 aPeliculas = data; // Guardar las películas obtenidas
                 mostrarCarrousel(aPeliculas); // Mostrar el carrusel con los datos
             })
@@ -25,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Función para mostrar el carrusel dinámicamente
     function mostrarCarrousel(peliculas) {
-        console.log(peliculas)
+        console.log(peliculas);
         const carouselContainer = document.querySelector('.carousel');
 
         // Construir la imagen principal con la primera película
@@ -41,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <button class="carousel__arrow carousel__arrow--left" onclick="previousSlide()">&#10094;</button>`;
         peliculas.forEach((pelicula, index) => {
             thumbnailsHTML += `
-            <img src="/images/banners/${pelicula.imagenBannerUrl}" alt="${pelicula.nombre}" onclick="showSlide(${index})" class="carousel__thumbnail">
+            <img src=/images/banners/${pelicula.imagenBannerUrl} alt="${pelicula.nombre}" onclick="showSlide(${index})" class="carousel__thumbnail">
             `;
         });
         thumbnailsHTML += `
@@ -55,10 +65,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Función para mostrar el slide actual
     function showSlide(index) {
-        console.log(aPeliculas[index].imagenBannerUrl)
+        console.log(aPeliculas[index].imagenBannerUrl);
         currentSlide = index;
         const mainImage = document.querySelector('.carousel__image');
-        mainImage.src = `/images/banners/${aPeliculas[currentSlide].imagenBannerUrl}`; // Corregida la ruta a /images
+        mainImage.src = `/images/banners/${aPeliculas[currentSlide].imagenBannerUrl}`; // Actualizar la imagen principal
         updateActiveThumbnail(); // Actualizar la miniatura activa
     }
 
@@ -90,8 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.previousSlide = previousSlide;
     window.showSlide = showSlide;
 
-    // Constantes necesarias para el segundo carrusel
-
+    // Configurar eventos para la segunda sección
     const infoThumbnails = document.querySelectorAll('.info-carousel__thumbnail');
     const texts = document.querySelectorAll('.info-carousel__text');
 
@@ -122,5 +131,4 @@ document.addEventListener("DOMContentLoaded", function () {
         // Quitar clase activa de todas las miniaturas
         infoThumbnails.forEach(thumb => thumb.classList.remove('active'));
     });
-
 });

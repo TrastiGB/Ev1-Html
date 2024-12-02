@@ -2,7 +2,7 @@
 /* global localStorage */
 
 function fetchCategorias() {
-    fetch('http://localhost:7103/Categoria')  // Cambié a http://
+    fetch('http://54.242.122.114:7103/Categoria')  // Cambié a http://
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error al obtener las categorías');
@@ -16,7 +16,7 @@ function fetchCategorias() {
 }
 
 function fetchPeliculas() {
-    fetch('http://localhost:7103/Pelicula')  // Cambié a http://
+    fetch('http://54.242.122.114:7103/Pelicula')  // Cambié a http://
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error al obtener los datos de la API');
@@ -31,7 +31,7 @@ function fetchPeliculas() {
 }
 
 function fetchPeliculasPorCategoria(categoriaId) {
-    fetch(`http://localhost:7103/Pelicula/categoria/${categoriaId}`)  // Cambié a http://
+    fetch(`http://54.242.122.114:7103/Pelicula/categoria/${categoriaId}`)  // Cambié a http://
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error al obtener los datos de la API');

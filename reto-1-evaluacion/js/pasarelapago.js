@@ -95,7 +95,7 @@ function cancelarPago() {
 
     console.log("Enviando IDs de asientos para liberar:", idsAsientos);
 
-    fetch(`http://localhost:7103/Sesion/${idSesion}/liberarAsientos`, {  // Cambié la URL a http://
+    fetch(`http://54.242.122.114:7103/Sesion/${idSesion}/liberarAsientos`, {  // Cambié la URL a http://
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
@@ -137,7 +137,7 @@ function realizarPago() {
         fecha: fechaPago
     };
 
-    fetch("http://localhost:7103/Compra", {  // Cambié la URL a http://
+    fetch("http://54.242.122.114:7103/Compra", {  // Cambié la URL a http://
         method: "POST",
         headers: {
             "Content-Type": "application/json"
