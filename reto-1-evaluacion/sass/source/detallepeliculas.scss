@@ -1,12 +1,13 @@
 /* Variables */
 @import 'variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-/* Global Styles */
 body {
   margin: 0;
   font-family: $detallepeliculas-font-family;
   color: $detallepeliculas-secondary-color;
   background-color: $detallepeliculas-primary-color;
+  padding: 0;
 }
 
 a {

@@ -20,6 +20,12 @@
 /* PasarelaPago */
 /* ReservaAsiento */
 /* Ticket */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  padding: 0;
+}
+
 .resumen-compra {
   display: flex;
   justify-content: center;

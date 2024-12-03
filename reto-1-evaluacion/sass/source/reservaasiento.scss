@@ -1,8 +1,9 @@
 /* Variables */
 @import 'variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
   background-color: $primary-color;
   color: $text-color;
   margin: 0;
