@@ -1,5 +1,6 @@
 @charset "UTF-8";
 /* Variables */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 /* Header */
 /* Color de texto para el footer */
 /* Fondo negro semitransparente */
@@ -39,40 +40,62 @@ main {
 }
 
 .seating-summary-container {
-  display: flex; /* Coloca los asientos y el resumen uno al lado del otro */
-  justify-content: flex-start; /* Ajusta los asientos y resumen hacia la derecha */
-  gap: 50px; /* Más espacio entre los elementos */
+  display: flex;
+  flex-direction: column; /* Layout para dispositivos móviles */
+  gap: 15px; /* Espaciado entre elementos */
   margin: 0 auto;
-  max-width: 1200px; /* Define el ancho máximo del contenedor */
-  padding-top: 30px; /* Espaciado superior */
+  width: 100%;
+  max-width: 768px; /* Ancho máximo para móviles */
+  padding: 15px; /* Espaciado interno */
+}
+@media screen and (min-width: 768px) {
+  .seating-summary-container {
+    flex-direction: row; /* Cambia a layout horizontal en pantallas medianas */
+    justify-content: space-between;
+    max-width: 1200px;
+    gap: 50px; /* Vuelve al espaciado original */
+    padding: 30px; /* Espaciado más amplio */
+  }
 }
 
 .screen {
   background-color: #d3d3d3;
   color: #ffffff;
   margin: 20px auto;
-  padding: 10px;
+  padding: 10px; /* Espaciado reducido */
   width: 100%;
   text-align: center;
+  font-size: 12px; /* Tamaño de texto reducido para móviles */
   font-weight: bold;
   border-radius: 5px;
+}
+@media screen and (min-width: 768px) {
+  .screen {
+    font-size: 16px; /* Tamaño de texto original para desktop */
+    padding: 10px; /* Espaciado original */
+  }
 }
 
 .seating-container {
   flex: 2; /* Los asientos ocupan más espacio */
   display: flex;
-  justify-content: flex-start; /* Mueve los asientos más a la derecha */
-  margin-top: 30px;
+  justify-content: center; /* Centra los asientos */
+  margin-top: 15px;
 }
 .seating-container .seating-chart {
   display: grid;
-  grid-template-columns: repeat(10, 50px); /* Ajusta según la cantidad de columnas */
-  gap: 10px;
-  margin-bottom: 20px;
+  grid-template-columns: repeat(5, 1fr); /* Configuración inicial para móviles */
+  gap: 5px; /* Espaciado reducido */
+}
+@media screen and (min-width: 768px) {
+  .seating-container .seating-chart {
+    grid-template-columns: repeat(10, 50px); /* Columnas más grandes para desktop */
+    gap: 10px; /* Espaciado original para desktop */
+  }
 }
 .seating-container .seat {
-  width: 50px;
-  height: 50px;
+  width: 30px; /* Tamaño reducido para móviles */
+  height: 30px; /* Tamaño reducido para móviles */
   background-color: #28a745;
   cursor: pointer;
   border: 2px solid #000;
@@ -88,56 +111,74 @@ main {
 .seating-container .seat.comprado {
   background-color: #dc3545;
 }
+@media screen and (min-width: 768px) {
+  .seating-container .seat {
+    width: 50px; /* Tamaño original para desktop */
+    height: 50px; /* Tamaño original para desktop */
+  }
+}
 
 .summary {
   flex: 1; /* El resumen ocupa menos espacio */
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centra los elementos horizontalmente */
-  margin-top: 0; /* Alineado con los asientos */
-  padding: 20px;
+  align-items: center;
+  padding: 15px; /* Espaciado reducido */
   background-color: #202020;
   color: #ffffff;
   border-radius: 10px;
 }
 .summary h2 {
-  font-size: 20px;
+  font-size: 16px; /* Tamaño reducido para móviles */
   margin-top: 10px;
   margin-bottom: 10px;
   text-align: center;
-  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .summary h2 {
+    font-size: 20px; /* Tamaño original para desktop */
+  }
 }
 .summary img {
   width: 100%; /* Ajusta la imagen al ancho del contenedor */
-  max-width: 150px; /* Imagen más pequeña */
+  max-width: 120px; /* Imagen más pequeña para móviles */
   height: auto; /* Mantén la proporción de la imagen */
   border-radius: 5px;
   margin-bottom: 10px; /* Espaciado entre la imagen y el texto */
-  align-self: center; /* Centra la imagen dentro del resumen */
+  align-self: center;
+}
+@media screen and (min-width: 768px) {
+  .summary img {
+    max-width: 150px; /* Tamaño original para desktop */
+  }
 }
 .summary ul {
   list-style: none;
   padding: 0;
   margin: 0;
   width: 100%;
-  text-align: center; /* Centra el texto en el resumen */
+  text-align: center;
 }
 .summary ul li {
-  font-size: 16px;
+  font-size: 14px; /* Tamaño reducido para móviles */
   margin-bottom: 5px;
+}
+@media screen and (min-width: 768px) {
+  .summary ul li {
+    font-size: 16px; /* Tamaño original para desktop */
+  }
 }
 .summary ul li:last-child {
   font-weight: bold;
   margin-top: 10px;
   padding-top: 10px;
   border-top: 1px solid #fff;
-  display: inline-block; /* Hacer la línea igual de larga que el texto */
-  width: fit-content; /* Ajustar la línea al contenido */
 }
 .summary button {
-  width: 150px; /* Botón ajustado al ancho de la imagen */
-  padding: 8px; /* Reducir el padding */
-  font-size: 14px; /* Letra más pequeña */
+  width: 100%; /* Botón se adapta al ancho del contenedor */
+  max-width: 150px; /* Ancho reducido para móviles */
+  padding: 8px; /* Espaciado reducido */
+  font-size: 12px; /* Tamaño reducido para móviles */
   background-color: #007bff;
   color: white;
   border: none;
@@ -152,10 +193,11 @@ main {
   background-color: #cccccc;
   cursor: not-allowed;
 }
-
 @media screen and (min-width: 768px) {
-  .seating-chart {
-    grid-template-columns: repeat(10, 50px);
+  .summary button {
+    max-width: 200px; /* Ancho original para desktop */
+    padding: 10px; /* Espaciado original */
+    font-size: 14px; /* Tamaño original para desktop */
   }
 }
 
