@@ -1,6 +1,30 @@
+@charset "UTF-8";
+/* Variables */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+/* Header */
+/* Color de texto para el footer */
+/* Fondo negro semitransparente */
+/* Fondo del footer igual al de la página */
+/* Color de bordes del footer */
+/* Ancho máximo para elementos centrados */
+/* Footer */
+/* Cambiado a blanco */
+/* Main */
+/* Color de texto para el footer */
+/* Fondo negro semitransparente */
+/* Fondo del footer igual al de la página */
+/* Color de bordes del footer */
+/* Ancho máximo para elementos centrados */
+/* AboutUs */
+/* Movies */
+/* DetallePeliculas */
+/* PasarelaPago */
+/* ReservaAsiento */
+/* Ticket */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 body {
-  font-family: Arial, sans-serif;
-  color: #E7EAEF;
+  font-family: "Poppins", Arial, sans-serif;
+  color: #ffffff;
   background-color: #000;
   margin: 0;
   padding: 0;
@@ -20,13 +44,14 @@ a {
   width: 100%;
   padding: 20px;
   background-color: #333;
+  text-align: center;
 }
 .categories__search {
   background-color: #4d4d4d;
   padding: 10px;
   border-radius: 5px;
   max-width: 30%;
-  margin-left: 35%;
+  margin: 0 auto;
 }
 .categories__search button {
   border: none;
@@ -43,7 +68,7 @@ a {
 .categories__search input {
   border: none;
   background-color: transparent;
-  color: #E7EAEF;
+  color: #ffffff;
   width: 90%;
 }
 .categories__search input::placeholder {
@@ -56,6 +81,7 @@ a {
   list-style: none;
   padding: 0;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
   padding-top: 10px;
@@ -64,12 +90,16 @@ a {
   background-color: #444;
   padding: 10px;
   border-radius: 5px;
-  color: #E7EAEF;
+  color: #ffffff;
   font-weight: bold;
   cursor: pointer;
 }
 .categories__item:hover {
   background-color: #555;
+}
+.categories__item.active {
+  background-color: #4d4d4d;
+  border: 2px solid #343434;
 }
 
 .movies {
@@ -117,7 +147,7 @@ a {
   flex: 1;
   margin: 10px 0;
   font-size: 14px;
-  color: #E7EAEF;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;

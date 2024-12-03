@@ -3,6 +3,16 @@ let aPeliculas = []; // Array global para las películas
 document.addEventListener("DOMContentLoaded", function () {
     let currentSlide = 0;
 
+    // Mostrar por defecto la información de "Asientos"
+    const defaultCategory = 'Asientos';
+    const defaultThumbnail = document.querySelector(`.info-carousel__thumbnail[alt="${defaultCategory}"]`);
+    const defaultText = document.getElementById(`info-${defaultCategory}`);
+    
+    if (defaultThumbnail && defaultText) {
+        defaultThumbnail.classList.add('active');
+        defaultText.classList.add('active');
+    }
+
     // Función para obtener las películas desde la API
     function fetchPeliculas() {
         fetch('https://localhost:7103/Pelicula/top5')
@@ -13,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 return response.json();
             })
             .then(data => {
-                console.log('a')
+                console.log('a');
                 aPeliculas = data; // Guardar las películas obtenidas
                 mostrarCarrousel(aPeliculas); // Mostrar el carrusel con los datos
             })
@@ -22,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Función para mostrar el carrusel dinámicamente
     function mostrarCarrousel(peliculas) {
-        console.log(peliculas)
+        console.log(peliculas);
         const carouselContainer = document.querySelector('.carousel');
 
         // Construir la imagen principal con la primera película
@@ -52,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Función para mostrar el slide actual
     function showSlide(index) {
-        console.log(aPeliculas[index].imagenBannerUrl)
+        console.log(aPeliculas[index].imagenBannerUrl);
         currentSlide = index;
         const mainImage = document.querySelector('.carousel__image');
         mainImage.src = `../img/banners/${aPeliculas[currentSlide].imagenBannerUrl}`; // Actualizar la imagen principal
@@ -87,11 +97,9 @@ document.addEventListener("DOMContentLoaded", function () {
     window.previousSlide = previousSlide;
     window.showSlide = showSlide;
 
-    //constantes necesarias para segundo
-
+    // Configurar eventos para la segunda sección
     const infoThumbnails = document.querySelectorAll('.info-carousel__thumbnail');
     const texts = document.querySelectorAll('.info-carousel__text');
-
 
     function showInfo(category) {
         // Ocultar todos los textos
@@ -120,5 +128,4 @@ document.addEventListener("DOMContentLoaded", function () {
         // Quitar clase activa de todas las miniaturas
         infoThumbnails.forEach(thumb => thumb.classList.remove('active'));
     });
-
 });

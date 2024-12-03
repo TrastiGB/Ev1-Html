@@ -1,20 +1,13 @@
 /* Variables */
-$primary-color: #202020;
-$secondary-color: #ffffff;
-$accent-color: #007bff;
-$rating-color: #f8b400;
-$font-family: 'Arial, sans-serif';
+@import 'variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-/* Colores ajustados manualmente */
-$accent-color-darkened: #0061cc;  // Un tono más oscuro de azul
-$primary-color-lightened: #383838; // Un tono más claro de gris
-
-/* Global Styles */
 body {
   margin: 0;
-  font-family: $font-family;
-  color: $secondary-color;
-  background-color: $primary-color;
+  font-family: $detallepeliculas-font-family;
+  color: $detallepeliculas-secondary-color;
+  background-color: $detallepeliculas-primary-color;
+  padding: 0;
 }
 
 a {
@@ -41,17 +34,15 @@ a {
   }
 
   &__content {
-    position: absolute;
     z-index: 2;
-    color: $secondary-color;
+    color: $detallepeliculas-secondary-color;
     display: flex;
     flex-direction: row;
     gap: 30px;
     padding: 20px;
-    margin-left: 10%;
-    margin-right: 10%;
     background: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
+    margin-left: 15%;
 
     @media (max-width: 768px) {
       flex-direction: column;
@@ -88,7 +79,7 @@ a {
       margin-bottom: 15px;
 
       .rating-icon {
-        color: $rating-color;
+        color: $detallepeliculas-rating-color;
         font-size: 28px;
         margin-right: 5px;
       }
@@ -102,8 +93,8 @@ a {
 
     .sessions-button {
       margin-top: 20px;
-      background-color: $accent-color;
-      color: $secondary-color;
+      background-color: $detallepeliculas-accent-color;
+      color: $detallepeliculas-secondary-color;
       padding: 12px 20px;
       font-size: 16px;
       border: none;
@@ -112,7 +103,7 @@ a {
       transition: background-color 0.3s ease, transform 0.2s ease;
 
       &:hover {
-        background-color: $accent-color-darkened; // Usamos el color oscuro
+        background-color: $detallepeliculas-accent-color-darkened; // Usamos el color oscuro
         transform: scale(1.05);
       }
 
@@ -122,7 +113,9 @@ a {
     }
 
     .sessions-container {
-      display: none; /* Por defecto estará oculto */
+      display: grid; /* Cambia a grid para organización automática */
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Define columnas dinámicas */
+      gap: 20px; /* Espaciado entre elementos */
       margin-top: 20px;
       padding: 15px;
       background-color: #444; /* Fondo oscuro para las sesiones */
@@ -131,11 +124,37 @@ a {
     }
 
     .sessions-container.hidden {
-      display: none;
+      display: none; /* Oculta el contenedor cuando tiene la clase hidden */
     }
 
-    .sessions-container:not(.hidden) {
-      display: block; /* Se muestra cuando no tiene la clase "hidden" */
+    .session-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Centra el contenido de cada tarjeta */
+      justify-content: space-between; /* Espaciado uniforme entre los elementos */
+      background-color: #555; /* Fondo individual de las tarjetas */
+      border-radius: 10px; /* Bordes redondeados */
+      padding: 10px; /* Espaciado interno */
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
+      color: white;
+      font-size: 14px; /* Tamaño del texto */
+    }
+
+    .session-card button {
+      margin-top: 5px;
+      background-color: $detallepeliculas-accent-color;
+      color: $detallepeliculas-secondary-color;
+      border: none;
+      border-radius: 5px;
+      padding: 8px 15px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+
+      &:hover {
+        background-color: $detallepeliculas-accent-color-darkened;
+        transform: scale(1.05);
+      }
     }
   }
 }
