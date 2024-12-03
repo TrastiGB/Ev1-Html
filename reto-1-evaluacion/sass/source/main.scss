@@ -1,30 +1,13 @@
 /* Variables */
-$primary-color: #fff;
-$secondary-color: #000;
-$text-color: #E7EAEF;
-/* Color de texto para el footer */
-$header-bg-color: rgba(0, 0, 0, 0.6);
-/* Fondo negro semitransparente */
-$footer-bg-color: #000;
-/* Fondo del footer igual al de la página */
-$border-color: #E7EAEF;
-/* Color de bordes del footer */
-$max-width: 1200px;
-/* Ancho máximo para elementos centrados */
-
-/* Base */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+@import 'variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', Arial, sans-serif;
     color: $text-color;
     background-color: $secondary-color;
+    padding: 0;
+    margin: 0;
 }
 
 a {
@@ -33,31 +16,26 @@ a {
 }
 
 /* Main Content y Titles - Mobile First */
-
 .main-content {
-    padding: 20px 15px; // Espaciado general
+    padding: 20px 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 
-    /* Carousel titulo */
-
     .carousel__titulo {
-        margin: 50px 0px;
+        margin: 40px 0;
         text-align: center;
 
         h1 {
-            font-size: 32px; // Ajusta el tamaño según necesites
+            font-size: 28px;
             font-weight: bold;
-            color: $text-color; // Reemplaza por tu variable o color deseado
-            margin: 0;
+            color: $text-color;
         }
     }
 }
 
 /* Carousel Styles - Mobile First */
-
 .carousel {
     display: flex;
     flex-direction: column;
@@ -67,50 +45,47 @@ a {
     &__main {
         position: relative;
         width: 100%;
-        max-width: 600px;
+        max-width: 320px;
         overflow: hidden;
-        height: 400px;
-        /* Altura fija para evitar el descuadre */
+        height: 220px;
 
         .carousel__image {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Ajusta la imagen para llenar el contenedor sin distorsión */
             border-radius: 8px;
         }
 
         .carousel__movie__info {
             position: absolute;
             bottom: 0;
-            height: 25%;
             width: 100%;
+            height: 25%;
             background-color: rgba(0, 0, 0, 0.6);
             color: white;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            padding: 0 10px;
 
             .carousel__movie__title {
-                margin-left: 2%;
-                font-size: 2rem;
+                font-size: 1.2rem;
                 font-weight: bold;
-                margin-bottom: 15px;
+                margin-bottom: 5px;
             }
 
             .movie__ticket-btn {
-                margin-left: 2%;
-                padding: 10px 20px;
-                font-size: 1rem;
+                font-size: 0.9rem;
                 background-color: $primary-color;
                 color: black;
                 border: none;
                 border-radius: 5px;
                 cursor: pointer;
+                padding: 8px;
                 transition: background-color 0.3s ease;
 
                 &:hover {
-                    background-color: #d9d9d9; // Reemplazo de darken($primary-color, 10%)
+                    background-color: lighten($primary-color, 10%);
                 }
             }
         }
@@ -119,37 +94,14 @@ a {
     &__thumbnails {
         display: flex;
         justify-content: center;
-        gap: 8px;
+        gap: 6px;
         margin-top: 16px;
-        .carousel__arrow {
-            margin-top: 5%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: $primary-color;
-            border: none;
-            font-size: 32px;
-            padding: 8px;
-            cursor: pointer;
-            border-radius: 50%;
-            z-index: 1;
 
-            &--left {
-                left: 8px;
-            }
-
-            &--right {
-                right: 8px;
-            }
-
-            &:hover {
-                background-color: rgba(0, 0, 0, 0.8); // Sin usar lighten o darken
-            }
-        }
         .carousel__thumbnail {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             object-fit: cover;
-            border-radius: 5px;
+            border-radius: 4px;
             cursor: pointer;
             opacity: 0.6;
             transition: opacity 0.3s;
@@ -160,82 +112,141 @@ a {
                 border: 2px solid $primary-color;
             }
         }
+
+        .carousel__arrow {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: $primary-color;
+            border: none;
+            font-size: 24px;
+            padding: 6px;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 1;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+        }
     }
 }
 
-/* Carousel Info Styles - Mobile First */
-
+/* Info Carousel Styles */
 .info-carousel {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 50px 0;
+    margin: 40px 0;
 
     &__thumbnails {
         display: flex;
         justify-content: center;
-        gap: 50px;
-        margin-bottom: 100px;
+        gap: 20px;
+        margin-bottom: 40px;
 
         .info-carousel__thumbnail {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             object-fit: cover;
             border-radius: 50%;
             cursor: pointer;
-            transition: transform 0.3s ease, opacity 0.3s ease;
             opacity: 0.7;
+            transition: transform 0.3s ease, opacity 0.3s ease;
 
             &:hover {
                 opacity: 1;
+                transform: scale(1.1);
             }
 
             &.active {
-                transform: scale(2); // Escala mayor para la imagen seleccionada
-                z-index: 2; // Eleva la imagen seleccionada por encima de las demás
-                position: relative; // Evita que la imagen desplazada afecte al layout
+                transform: scale(1.5);
+                z-index: 2;
                 opacity: 1;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Sombreado opcional
             }
         }
     }
 
     &__content {
         text-align: center;
-        width: 80%;
+        width: 90%;
 
         .info-carousel__text {
-            display: none; // Ocultar todos los textos por defecto
-            font-size: 16px;
-            color: $text-color; // Reemplaza $text-color con tu variable de color de texto
-            line-height: 24px;
+            display: none;
+            font-size: 14px;
+            line-height: 20px;
 
             &.active {
-                display: block; // Mostrar solo el texto activo
-                animation: fadeIn 0.3s ease-in-out; // Efecto de aparición
+                display: block;
+                animation: fadeIn 0.3s ease-in-out;
             }
         }
     }
 }
 
-// Animación para la aparición del texto
+/* Animación para la aparición del texto */
 @keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(-10px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* Media Queries for Desktop */
+/* Media Queries for Larger Screens */
 @media (min-width: 768px) {
+    .main-content {
+        padding: 30px 20px;
+
+        .carousel__titulo h1 {
+            font-size: 36px;
+        }
+    }
+
+    .carousel__main {
+        max-width: 600px;
+        height: 350px;
+    }
+
+    .info-carousel {
+        &__thumbnails .info-carousel__thumbnail {
+            width: 80px;
+            height: 80px;
+        }
+
+        &__content {
+            width: 75%;
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .main-content {
+        padding: 40px 30px;
+
+        .carousel__titulo h1 {
+            font-size: 48px;
+        }
+    }
+
     .carousel__main {
         max-width: 800px;
         height: 500px;
-        /* Altura fija para escritorio */
+    }
+
+    .info-carousel {
+        &__thumbnails {
+            gap: 50px;
+
+            .info-carousel__thumbnail {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        &__content {
+            width: 60%;
+        }
     }
 }
