@@ -1,5 +1,5 @@
 function fetchCategorias() {
-    fetch('https://localhost:7103/Categoria')
+    fetch('http://54.242.122.114:7103/Categoria')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error al obtener las categorías');
@@ -13,7 +13,7 @@ function fetchCategorias() {
 }
 
 function fetchPeliculas() {
-    fetch('https://localhost:7103/Pelicula')
+    fetch('http://54.242.122.114:7103/Pelicula')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error al obtener los datos de la API');
@@ -28,7 +28,7 @@ function fetchPeliculas() {
 }
 
 function fetchPeliculasPorCategoria(categoriaId) {
-    fetch(`https://localhost:7103/Pelicula/categoria/${categoriaId}`)
+    fetch(`http://54.242.122.114:7103/Pelicula/categoria/${categoriaId}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error al obtener los datos de la API');
@@ -50,7 +50,7 @@ function mostrarPeliculas(peliculas) {
         const peliculaHTML = `
             <div class="movie-card">
                 <div class="movie-card__imagen__estandar">
-                    <img src="../img/img_normales/${pelicula.imagenPequeniaUrl}" alt="${pelicula.nombre}" class="movie-card__image">
+                    <img src="/images/img_normales/${pelicula.imagenPequeniaUrl}" alt="${pelicula.nombre}" class="movie-card__image">
                 </div>
                 <h3 class="movie-card__title">${pelicula.nombre}</h3>
                 <button class="movie-card__button" onclick="verMasInformacion('${pelicula.id}')">Más Información</button>
@@ -114,7 +114,7 @@ function configurarBuscador(peliculas) {
 
 function verMasInformacion(movieId) {
     localStorage.setItem('idPelicula', movieId);
-    window.location.href = `detallepelicula.html?id=${movieId}`;
+    window.location.href = `detallepelicula?id=${movieId}`;
 }
 
 document.addEventListener('DOMContentLoaded', () => {

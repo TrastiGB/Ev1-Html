@@ -7,7 +7,7 @@ function cargarResumenCompraFinal() {
         return;
     }
 
-    fetch(`https://localhost:7103/Compra/${idCompra}`)
+    fetch(`http://54.242.122.114:7103/Compra/${idCompra}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Error al cargar el resumen de la compra: ${response.statusText}`);
@@ -31,7 +31,7 @@ function cargarResumenCompraFinal() {
 
             // Añadir evento al botón para redirigir a home.html
             document.getElementById("volverHomeBtn").addEventListener("click", () => {
-                window.location.href = "home.html";
+                window.location.href = "home";
             });
         })
         .catch(error => {

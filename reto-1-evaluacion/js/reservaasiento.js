@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let TotalPrecio = 0;
     let Sesion;
 
-    const urlApi = `https://localhost:7103/Sesion/${idSesion}`;
+    const urlApi = `http://54.242.122.114:7103/Sesion/${idSesion}`;
 
     function cargarAsientos() {
         fetch(urlApi)
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Crear y agregar imagen
         const imagenPelicula = document.createElement("img");
-        imagenPelicula.src = `../img/img_normales/${sesion.pelicula.imagenPequeniaUrl}`; // URL de la imagen desde la API
+        imagenPelicula.src = `/images/img_normales/${sesion.pelicula.imagenPequeniaUrl}`; // URL de la imagen desde la API
         imagenPelicula.alt = `Imagen de ${sesion.pelicula.nombre}`;
         imagenPelicula.style.width = "100%";
         imagenPelicula.style.borderRadius = "5px";
@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 };
 
                 localStorage.setItem("compra", JSON.stringify(compra));
-                window.location.href = "pasarelapago.html";
+                window.location.href = "pasarelapago";
             })
             .catch(error => console.error("Error al realizar la compra:", error));
     }

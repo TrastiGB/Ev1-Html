@@ -6,7 +6,7 @@ function cargarResumenCompra() {
 
     const resumenHTML = `
         <div class="resumen-compra__container">
-            <img src="../img/img_normales/${compra.sesionReservada.pelicula.imagenPequeniaUrl}" alt="Imagen de la Sesión" class="resumen-compra__image">
+            <img src="/images/img_normales/${compra.sesionReservada.pelicula.imagenPequeniaUrl}" alt="Imagen de la Sesión" class="resumen-compra__image">
             <div class="resumen-compra__details">
                 <h2 class="resumen-compra__details__title">Resumen de la Compra</h2>
                 <p class="resumen-compra__details__info"><strong>Asientos:</strong> ${compra.asientosPosiciones.join(", ")}</p>
@@ -92,7 +92,7 @@ function cancelarPago() {
 
     console.log("Enviando IDs de asientos para liberar:", idsAsientos);
 
-    fetch(`https://localhost:7103/Sesion/${idSesion}/liberarAsientos`, {
+    fetch(`http://54.242.122.114:7103/Sesion/${idSesion}/liberarAsientos`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
@@ -107,7 +107,7 @@ function cancelarPago() {
         })
         .then(() => {
             localStorage.removeItem("compra"); 
-            window.location.href = "reservaasiento.html"; 
+            window.location.href = "reservaasiento"; 
         })
         .catch(error => {
             console.error("Error durante el proceso:", error);
@@ -134,7 +134,7 @@ function realizarPago() {
         fecha: fechaPago
     };
 
-    fetch("https://localhost:7103/Compra", {
+    fetch("http://54.242.122.114:7103/Compra", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -157,7 +157,7 @@ function realizarPago() {
             if (data) {
                 localStorage.setItem("idCompra", data.id);
             }
-            window.location.href = "ticket.html"; // Redirigir a la página del ticket
+            window.location.href = "ticket"; // Redirigir a la página del ticket
         })
         .catch(error => {
             console.error("Error durante el proceso de compra:", error);
